@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-#	packages
+#	packages you'll need
 #
 use Text::Capitalize 0.2;
 use IMDB::Film;
@@ -28,7 +28,8 @@ foreach $tobefixed (@movielisting) {
 			print "What IMDB Found:\n";
 			print "Title: ".$imdbObj->title()."\n";			# what did IMDB find?
 			print "Year: ".$imdbObj->year()."\n";			# list year to verify film
-                	print "Plot Symmary: ".$imdbObj->plot()."\n";		# list plot summery to verify film
+                	print "Plot: ".$imdbObj->plot()."\n";			# list plot summery to verify film
+                	print "AKA: ".$imdbObj->also_known_as()."\n";		# list alt titles
 			name_change($original, $fixed, @inprocess[1]);		# call the sub
 		}
 	} else {								# IMDB failed, fall back to text manipulation
@@ -50,7 +51,7 @@ sub name_change {
 	if ($approval1 =~ /^[Y]?$/i) {					# match Yy or blank
 		system("mv", $original, $fixed);			# change the name
 	} elsif ($approval1 =~ /^[N]$/i) {				# Match Nn
-		print "Want to make a suggestion? [Y|n]: ";
+		print "Want to make a suggestion? [Y|n]: ";		# offer a solution
 		chomp(my $approval2 = <STDIN>);				# get approval/denial
 		if ($approval2 =~ /^[Y]?$/i) {				# match Yy or blank
 			print "Suggested Title (don't bother with the extention ie: .m4v): ";
