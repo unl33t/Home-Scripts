@@ -29,8 +29,6 @@ foreach $tobefixed (@movielisting) {
 			print "Title: ".$imdbObj->title()."\n";			# what did IMDB find?
 			print "Year: ".$imdbObj->year()."\n";			# list year to verify film
                 	print "Plot: ".$imdbObj->plot()."\n";			# list plot summery to verify film
-                	print "AKA: \n";		# list alt titles
-                	print map { "$_\n" } $imdbObj->also_known_as();
 			name_change($original, $fixed, @inprocess[1]);		# call the sub
 		}
 	} else {								# IMDB failed, fall back to text manipulation
