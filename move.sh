@@ -1,7 +1,9 @@
 #!/bin/bash
-#
-#	Begin
-#
+#################################################################
+#	This script is here to keep me from losing more		#
+#	movie files between drive shuffles.  0 byte movies	#
+#	are noones friend.					#
+#################################################################
 cp -pv --remove-destination $1 $2
 ls $2 | grep $1
 origf=$(md5sum $1 | cut -d " " -f 1)
