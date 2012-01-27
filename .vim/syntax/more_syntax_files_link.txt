@@ -1,0 +1,1 @@
+http://www.vim.org/scripts/script_search_results.php?&script_type=syntax&order_by=rating&show_me=20&result_ptr=100
