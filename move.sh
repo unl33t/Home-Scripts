@@ -20,7 +20,7 @@ if [[ "$1" =~ "/" ]]
 				#echo "Old: $origf";
 				#echo "New: $newf";
 				echo "File moved, erase the orig: rm $1";
-#				rm "$1";			#comment this out when testing
+				rm "$1";			#comment this out when testing
 			else
 				#echo "Old: $origf"
 		                #echo "New: $newf";
