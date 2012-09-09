@@ -1,8 +1,8 @@
 #!/bin/bash
 #################################################################
-#	This script is here to keep me from losing more		#
-#	movie files between drive shuffles.  0 byte movies	#
-#	are noones friend.					#
+#	This script is here to keep me from losing more		        #
+#	movie files between drive shuffles.  0 byte movies	        #
+#	are no ones friend.					                        #
 #################################################################
 if [[ "$1" =~ "/" ]]
 	then
@@ -17,10 +17,10 @@ if [[ "$1" =~ "/" ]]
 		#if [ $origf ] && [ "$origf" = "$newf" ]
 		if [ $? == 0 ]
 			then
-				#echo "Old: $origf";
-				#echo "New: $newf";
+				echo "Old: $origf";
+				echo "New: $newf";
 				echo "File moved, erase the orig: rm $1";
-				rm "$1";			#comment this out when testing
+				#rm "$1";			#comment this out when testing
 			else
 				#echo "Old: $origf"
 		                #echo "New: $newf";
