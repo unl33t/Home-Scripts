@@ -1,31 +1,44 @@
 #! /bin/sh
-##############################################################################
+#######################################################################################
 #
 #  application name: dnsactual
 #  other files: dnsactual.conf (keeps the last updated ip)
 #               dnsactual.log  (register date & time of the actualization)
+#		(files created on first run, if missing except domains.txt)
+#		domains.txt (list of site hashes from freedns.afraid.org)
+#	(format:  http://freedns.afraid.org/dynamic/update.php?[site-hash-code-here])
+#  other programs needed:
+#		lynx - text web browser
+#  optional programs:
+#		twidge - CLI twitter updater
 #  Author: Ernest Danton
 #  Date: 01/29/2007
-##############################################################################
+#
+#  Updated by: Zach Falle
+#
+#######################################################################################
 
-if test -f /etc/freedns/dnsactual.conf
+if test -f dnsactual.conf
 	then
-		CacheIP=$(cat /etc/freedns/dnsactual.conf)
+		CacheIP=$(cat dnsactual.conf)
+		echo "Old IP:  $CacheIP"
 fi
 CurrIP=$(lynx -dump "http://checkip.dyndns.org" | cut -d " " -f 7)
-if [ "$CurreIP" = "$CacheIP" ]
+echo "New IP: $CurrIP"
+if [ "$CurrIP" = "$CacheIP" ]
 	then
 #	Both IPs are equal
 		sleep 1
-		twidge update "$CurreIP `date`"
+		twidge update "$CurrIP `date`"
 	else
 #	The IP has changed
-		twidge update "$CurreIP `date` IP has changed"
+		sleep 1
+		twidge update "$CurrIP `date` IP has changed"
 		for i in `cat domains.txt`
 			do
 				wget "$i" -o /dev/null -O /dev/stdout
 		done
-		echo "$CurreIP `date`" >> dnsactual.log
+		echo "$CurrIP `date`" >> dnsactual.log
 fi
-rm -f /etc/freedns/dnsactual.conf
-echo $CurreIP > /etc/freedns/dnsactual.conf
+rm -f dnsactual.conf
+echo $CurrIP > dnsactual.conf
