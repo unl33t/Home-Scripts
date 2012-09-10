@@ -1,0 +1,31 @@
+#! /bin/sh
+##############################################################################
+#
+#  application name: dnsactual
+#  other files: dnsactual.conf (keeps the last updated ip)
+#               dnsactual.log  (register date & time of the actualization)
+#  Author: Ernest Danton
+#  Date: 01/29/2007
+##############################################################################
+
+if test -f /etc/freedns/dnsactual.conf
+	then
+		CacheIP=$(cat /etc/freedns/dnsactual.conf)
+fi
+CurrIP=$(lynx -dump "http://checkip.dyndns.org" | cut -d " " -f 7)
+if [ "$CurreIP" = "$CacheIP" ]
+	then
+#	Both IPs are equal
+		sleep 1
+		twidge update "$CurreIP `date`"
+	else
+#	The IP has changed
+		twidge update "$CurreIP `date` IP has changed"
+		for i in `cat domains.txt`
+			do
+				wget "$i" -o /dev/null -O /dev/stdout
+		done
+		echo "$CurreIP `date`" >> dnsactual.log
+fi
+rm -f /etc/freedns/dnsactual.conf
+echo $CurreIP > /etc/freedns/dnsactual.conf
