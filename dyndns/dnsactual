@@ -21,10 +21,8 @@
 if test -f dnsactual.conf
 	then
 		CacheIP=$(cat dnsactual.conf)
-		echo "Old IP:  $CacheIP"
 fi
 CurrIP=$(lynx -dump "http://checkip.dyndns.org" | cut -d " " -f 7)
-echo "New IP: $CurrIP"
 if [ "$CurrIP" = "$CacheIP" ]
 	then
 #	Both IPs are equal
