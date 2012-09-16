@@ -31,7 +31,7 @@ if [ "$CurrIP" = "$CacheIP" ]
 	else
 #	The IP has changed
 		sleep 1
-		twidge update "$CurrIP `date` IP has changed"
+		twidge update "$CurrIP `date` IP has changed @unl33t"
 		for i in `cat domains.txt`
 			do
 				wget "$i" -o /dev/null -O /dev/stdout
