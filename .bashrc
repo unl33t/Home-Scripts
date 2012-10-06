@@ -15,8 +15,7 @@ alias starwars='telnet towel.blinkenlights.nl'
 alias bobb="ssh -L 8123:172.22.1.199:8123 game.minecrap.net"
 alias minecrap="ssh -L 8123:172.22.1.199:8123 minecrap@game.minecrap.net"
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
-alias move="~/Home-Scripts/move.sh"
-alias typefix="~/Home-Scripts/typefix.pl"
+alias typefix="~/Home-Scripts/movie-scripts/typefix.pl"
 alias sc="screen -dr"
 
 #PS1='$PWD	#legacy prompt for the fun of it

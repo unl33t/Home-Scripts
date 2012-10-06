@@ -25,7 +25,7 @@ foreach $tobefixed (@movielisting) {
 		if ( $original eq $fixed ) {					# do we NEED to change it?
 			print "Title correct, no change needed\n";
 		} else {
-			print "What IMDB Found:\n";
+			print "\n\nWhat IMDB Found:\n";
 			print "Title: ".$imdbObj->title()."\n";			# what did IMDB find?
 			print "Year: ".$imdbObj->year()."\n";			# list year to verify film
                 	print "Plot: ".$imdbObj->plot()."\n";			# list plot summery to verify film
@@ -44,7 +44,7 @@ sub name_change {
 	my $original = @_[0];
 	my $fixed = @_[1];
 	my $ext = @_[2];
-	print "$original -> $fixed\n";					# list whats going to be done
+	print "\n\n$original -> $fixed\n";					# list whats going to be done
 	print "Will this work for you? [Y|n]: ";			# verify change
 	chomp(my $approval1 = <STDIN>);					# get approval/denial
 	if ($approval1 =~ /^[Y]?$/i) {					# match Yy or blank
@@ -53,7 +53,7 @@ sub name_change {
 		print "Want to make a suggestion? [Y|n]: ";		# offer a solution
 		chomp(my $approval2 = <STDIN>);				# get approval/denial
 		if ($approval2 =~ /^[Y]?$/i) {				# match Yy or blank
-			print "Suggested Title (don't bother with the extention ie: .m4v): ";
+			print "\nSuggested Title (don't bother with the extention ie: .m4v): ";
 			chomp($fixed = <STDIN>);			# get users title
 			$fixed = $fixed.".".$ext;
 			print "$original -> $fixed\n";		
