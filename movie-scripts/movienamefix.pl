@@ -11,7 +11,7 @@ my $tobefixed = "";
 my $original = "";
 my @inprocess;
 my $fixed = "";
-my @movielisting = glob("*.m4v");						# Gather all the .m4vs, that's what i rip in
+my @movielisting = glob("*.m4v");					# Gather all the .m4vs, that's what i rip in
 #
 #	let us begin...
 #
