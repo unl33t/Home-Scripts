@@ -16,23 +16,25 @@ pluginpath="/home/g33k/minecraft/prod/Minecraft/plugins";
 # Plugins
 MVversion="2.5";	# Multiverse-* Version
 MV="1";
-WEversion='5.4.3';	# WorldEdit Version
+WEversion='5.5.2';	# WorldEdit Version
 WE="1";
-WGversion='5.5.4';	# WorldGuard Version
+WGversion='5.7.2';	# WorldGuard Version
 WG="1";
-CBversion='2.2';	# CommandBook Version
+CBversion='2.2.1';	# CommandBook Version
 CB="1";
 CHversion='3.3.1';	# CommandHelper Version
 CH="0";
-mChatSuite='1.3.1-R2.1';	# mChatSuite Version
+mChatSuite='MChat-1.4.5-R0.1.12.jar';	# mChat Version
 MC="1";
-Spout='NA';		# SpoutPlugin Version
-SP="1";
+NoCheat='';		# NoCheatPlus
+NC="1";
+HawkEye='';		# Hawkeye Reloaded
+HE="1";
 # Das Bukkit
 bukkitvers='dev';	# Bukkit Version <dev|rb>
 BK="0";
-bukkitplusplus='1.3.2-R1-SNAPSHOT';	# CraftBukkit++ version
-BP="1";
+spigot='spigot.jar';	# Spigot version
+SPGT="1";
 #
 #	Global prep
 #
@@ -131,32 +133,47 @@ fi
 #
 if [ $MC -eq 1 ]
 then
-	echo "Grabbing mChatSuit";
-	$myget http://ci.mdev.in/job/mChatSuite/lastSuccessfulBuild/artifact/target/MChat-$mChatSuite.jar
-	if [ -a MChat-$mChatSuite.jar ]
+	echo "Grabbing mChat";
+	$myget http://ci.mdev.in/job/MChat/lastSuccessfulBuild/artifact/target/$mChatSuite
+	if [ -a $mChatSuite ]
 	        then
-	                $mymv $downloadpath/MChat-$mChatSuite.jar $pluginpath/mChatSuite.jar
+	                $mymv $downloadpath/$mChatSuite $pluginpath/mChat.jar
 	        else
-	                echo "mChat update not found, double check the source link http://ci.mdev.in/job/mChatSuite/";
+	                echo "mChat update not found, double check the source link http://ci.mdev.in/job/MChat/";
 	fi
 else
 	echo "Skipping mChatSuite"
 fi
+#	NoCheatPlus Plugin
 #
-#	Spout Plugin
-#
-if [ $SP -eq 1 ]
+if [ $NC -eq 1 ]
 then
-	echo "Grabbing the latest dev SpoutPlugin";
-	$myget http://spout.in/plugindev
-	if [ -a plugindev ]
-		then
-			$mymv $downloadpath/plugindev $pluginpath/SpoutPlugin.jar
-		else
-			echo "SpoutPlugin not found, double check the source link http://ci.spout.org/job/SpoutPlugin/";
-	fi
+        echo "Grabbing the latest dev NoCheatPlus";
+        $myget http://www.nocheatplus.org:8080/job/NoCheatPlus/lastSuccessfulBuild/artifact/target/NoCheatPlus.jar
+        if [ -a NoCheatPlus.jar ]
+                then
+                        $mymv $downloadpath/NoCheatPlus.jar $pluginpath/NoCheatPlus.jar
+                else
+                        echo "NoCheatPlus not found, double check the source link http://www.nocheatplus.org:8080/job/NoCheatPlus/";
+        fi
 else
-	echo "Skipping SpoutPlugin";
+        echo "Skipping NoCheatPlus";
+fi
+#
+#       HawkEye Plugin
+#
+if [ $HE -eq 1 ]
+then
+        echo "Grabbing the latest dev HawkEye";
+        $myget http://ci.danru.com.br:8080/job/Hawkeye-Reload/lastSuccessfulBuild/artifact/target/HawkEye.jar
+        if [ -a HawkEye.jar ]
+                then
+                        $mymv $downloadpath/HawkEye.jar $pluginpath/HawkEye.jar
+                else
+                        echo "HawkEye not found, double check the source link http://ci.danru.com.br:8080/job/Hawkeye-Reload/";
+        fi
+else
+        echo "Skipping HawkEye";
 fi
 #
 #	das bukket
@@ -175,17 +192,17 @@ else
 	echo "Skipping CraftBukkit";
 fi
 #
-#	CraftBukkit++
+#	Spigot
 #
-if [ $BP -eq 1 ]
+if [ $SPGT -eq 1 ]
 then
         echo "Grabbing the latest CraftBukket++";
-        $myget "http://build.spout.org/job/CraftBukkit++/lastSuccessfulBuild/artifact/target/craftbukkit-$bukkitplusplus.jar"
-        if [ -a craftbukkit-$bukkitplusplus.jar ]
+        $myget "http://ci.ecocitycraft.com/job/Spigot/lastSuccessfulBuild/artifact/Spigot/target/$spigot"
+        if [ -a $spigot ]
                 then
-                        $mymv $downloadpath/craftbukkit-$bukkitplusplus.jar $pluginpath/../craftbukkit.jar
+                        $mymv $downloadpath/$spigot $pluginpath/../craftbukkit.jar
                 else
-                        echo "Latest Bukket not found, double check the source link http://build.spout.org/job/CraftBukkit++/";
+                        echo "Latest Bukket not found, double check the source link http://ci.ecocitycraft.com/job/Spigot/";
         fi
 else
         echo "Skipping CraftBukkit";
