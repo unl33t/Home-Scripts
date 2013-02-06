@@ -20,23 +20,28 @@
 
 if test -f dnsactual.conf
 	then
-		CacheIP=$(cat dnsactual.conf)
+		CacheIP=`cat dnsactual.conf`
+		
 fi
 CurrIP=$(lynx -dump "http://checkip.dyndns.org" | cut -d " " -f 7)
+#echo "compair $CurrIP to $CacheIP"
 if [ "$CurrIP" = "$CacheIP" ]
 	then
 #	Both IPs are equal
 		sleep 1
 		twidge update "$CurrIP `date`"
+		#echo "$CurrIP `date`"
 	else
 #	The IP has changed
 		sleep 1
 		twidge update "$CurrIP `date` IP has changed @unl33t"
+		#echo "$CurrIP `date` IP has changed @unl33t"
 		for i in `cat domains.txt`
 			do
 				wget "$i" -o /dev/null -O /dev/stdout
+				#echo "Updating would be happeneing here"
 		done
-		echo "$CurrIP `date`" >> dnsactual.log
+		echo "$CurrIP	`date`" >> dnsactual.log
 fi
 rm -f dnsactual.conf
 echo $CurrIP > dnsactual.conf
