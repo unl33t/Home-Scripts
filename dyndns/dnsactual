@@ -21,10 +21,14 @@
 if test -f dnsactual.conf
 	then
 		CacheIP=`cat dnsactual.conf`
-		
+	else
+		CacheIP=""
 fi
+
+
 CurrIP=$(lynx -dump "http://checkip.dyndns.org" | cut -d " " -f 7)
-#echo "compair $CurrIP to $CacheIP"
+#echo "compare $CurrIP to $CacheIP"
+
 if [ "$CurrIP" = "$CacheIP" ]
 	then
 #	Both IPs are equal
