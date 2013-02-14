@@ -4,6 +4,7 @@ worlds['Hunting_Grounds'] = "/home/g33k/minecraft/prod/Minecraft/Worlds/Hunting 
 worlds['Build_Lands'] = "/home/g33k/minecraft/prod/Minecraft/Worlds/Build Lands"
 worlds['Nether'] = "/home/g33k/minecraft/prod/Minecraft/Worlds/Nether"
 worlds['The_End'] = "/home/g33k/minecraft/prod/Minecraft/Worlds/The End"
+
 #	Day Rneders
 renders["worldday"] = {
     "world": "World",
@@ -48,7 +49,7 @@ renders["blnight"] = {
 renders["nether"] = {
     "world": "Nether",
     "title": "The Nether",
-    "rendermode": smooth_lighting,
+    "rendermode": nether,
     "dimension": "nether",
 }
 
@@ -56,7 +57,7 @@ renders["nether"] = {
 renders["theend"] = {
     "world": "The_End",
     "title": "The End",
-    "rendermode": smooth_lighting,
+    "rendermode": lighting,
     "dimension": "end",
 }
 
