@@ -18,6 +18,7 @@ alias minecrap="ssh -L 8123:172.22.1.199:8123 minecrap@game.minecrap.net"
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
+alias mc-map="overviewer.py --conf="/home/g33k/Home-Scripts/minecraft/minecraft-overviewer-config.py""
 
 #PS1='$PWD	#legacy prompt for the fun of it
 #you are here ->'
