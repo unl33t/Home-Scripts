@@ -64,4 +64,4 @@ renders["theend"] = {
 #	Defaults
 outputdir = "/sites/mc/maps"
 texturepath = "/home/g33k/minecraft/prod/Minecraft/plugins/dynmap/texturepacks/johnsmith.zip"
-processes = 1
+processes = 2
