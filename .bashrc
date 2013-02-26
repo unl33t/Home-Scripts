@@ -14,7 +14,7 @@ alias starwars='telnet towel.blinkenlights.nl'
 # shortcuts
 #
 alias bobb="ssh -L 8123:172.22.1.199:8123 game.minecrap.net"
-alias minecrap="ssh -L 8123:172.22.1.199:8123 minecrap@game.minecrap.net"
+alias minecrap="ssh -L 8123:172.22.1.199:8123 minecrap@mc.ultimatefail.net"
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
