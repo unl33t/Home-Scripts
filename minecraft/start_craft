@@ -1,14 +1,14 @@
 #!/usr/bin/perl
 if ( -f "/home/g33k/minecraft/prod/minecraft_server.pid" ) {
-	print "it's running\n";
+	print "it's running!\n";
 	}
 	else {
-		print "it's dead jim\n";
+		print "it's dead jimi...\n";
 		if ( `/bin/ps -ef | /bin/grep -v grep | /bin/grep -i screen | /bin/grep -i minecraft` ) {
-			print "but a screen scession is running\n";	
+			print "...but a screen scession is running.\n";	
 			}
 			else {
-				print "might want to start a new screen session for minecraft/mcmyadmin/bukkit\n";
+				print "...starting a new screen session for minecraft/mcmyadmin/bukkit/thing...\n";
 				exec('cd /home/g33k/minecraft/prod; /usr/bin/screen -d -m -S minecraft /home/g33k/minecraft/prod/MCMA2_Linux_x86_64') or print STDERR " crap! $! \n";
 				}
 		}
