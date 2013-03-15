@@ -19,6 +19,7 @@ alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
 alias mc-map="overviewer.py --conf="/home/g33k/Home-Scripts/minecraft/minecraft-overviewer-config.py""
+alias mv="mv -v"
 
 #PS1='$PWD	#legacy prompt for the fun of it
 #you are here ->'
