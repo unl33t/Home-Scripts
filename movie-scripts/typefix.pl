@@ -2,7 +2,7 @@
 #
 #   vars
 #
-my @movielisting = glob("*.mp4 *.m4v *.mov *.avi");
+my @movielisting = glob("*.mp4 *.m4v *.mov *.avi *.mkv");
 #
 #   Body
 #
