@@ -33,12 +33,12 @@ if [ "$CurrIP" = "$CacheIP" ]
 	then
 #	Both IPs are equal
 		sleep 1
-		/usr/local/bin/twidge update "$CurrIP `date`"
+		/usr/bin/twidge update "$CurrIP `date`"
 		#echo "$CurrIP `date`"
 	else
 #	The IP has changed
 		sleep 1
-		/usr/local/bin/twidge update "$CurrIP `date` IP has changed @unl33t"
+		/usr/bin/twidge update "$CurrIP `date` IP has changed @unl33t"
 		#echo "$CurrIP `date` IP has changed @unl33t"
 		for i in `cat domains.txt`
 			do
