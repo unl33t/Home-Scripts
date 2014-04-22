@@ -1,4 +1,8 @@
 #!/bin/bash
 git commit -a
-#git origin/master	evidently this isn't a git command
 git push
+echo "ignored files: "
+git ls-files . --ignored --exclude-standard --others
+echo "untracked files: "
+git ls-files . --exclude-standard --others
+echo "all done"
