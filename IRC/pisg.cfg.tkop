@@ -1,0 +1,150 @@
+# Config file for pisg (set up all your channels/logfiles here)
+#
+# For a list of all configuration options, see docs/pisg-doc.txt or
+# docs/html/index.html for a HTML version.
+#
+# Here is some basic examples, uncomment them to make them actually do
+# something.
+# users
+<user nick="unl33t" alias="unl33t* scaryl33t l33t L33t un33t_tmp unleet_work" link="http://wtfwasithinking.org" sex="m">
+<user nick="ittybittypretty" alias="bbyl33t babyl33t allybaby babyl33t" sex="f" link="http://pics.wtfwasithinking.org/main.php?g2_itemId=253">
+<user nick="Skeeve" alias="Skeev Skeeve* skeeve* UndeadSkeeve Zombie_Skeeve WraithBlade ApertureScience blade Godzilla The_Management TheGoodPackage SkeveeMetting iSkeeve Skeevribbit" link="http://www.tkop.com" sex="m">
+<user nick="Wildfire" alias="Wildfire* wildfire* \dev\null GhostInTheShell KillerGeek \\MSHOME\LAPTP IFlyGTi Softjuar3z_p1r4t3 MesseswithUnl33tsStats Softjuar3z_p1473 Vapour IFlyGTi_* MistyVapour BurningHeretic Burning_Heretic ShadowCat GuyllFyre Butcher_in_Black_Boots Zaphod ReverendWildfire ZaphodBeeblebrox MrSmith" link="http://www.chaoticcrafts.com/" sex="m">
+<user nick="Zung" alias="Zung* zung* Zzzzzzzung Zzzzzung sung DJ_Platypus Platypus" sex="m" link="http://www.letterstoburn.com/">
+<user nick="thecatt" alias="catt* thecatt*" sex="m">
+<user nick="Evil_KATil" alias="Evil_* evil_*" sex="f">
+<user nick="blaarg" alias="blaarg* wushupork* WoW_GM Wilford_Brimley Morrissey" link="http://www.destructophonic.com" sex="m">
+<user nick="Eyeball" alias="eyeball* Eyeball* Ayeball_around EyePatch ZombiEyeball EyeVoted Zombie_Eyeball" link="http://www.punslinger.com" sex="m">
+<user nick="Bliss" alias="bliss* Bliss* Blis_NaNo Sixx HumpDayBliss SuperBliss YourMom MomOfShadow ssilb* tove gyre" sex="f" link="http://bliss.kicks-ass.net/">
+<user nick="Ace" alias="Ace_* ace_*" link="http://www.mikerichie.net" sex="m">
+<user nick="skexy" alias="skexy_* skexy`" sex="m">
+<user nick="Evelynne_Darkstar" alias="Eve Everlynne_* Evelynne_* Evelynne darkstar* Darkstar* Eve_* Legion CrankyPants" sex="f">
+<user nick="TinyEmperor" alias="tinyemperor littleemperor littlepp" sex="m" link="http://www.lanethelonious.com/">
+<user nick="Rowan" alias="Rowan_* rowan_* Norealnames* roxane_*" sex="f">
+<user nick="seuratt" alias="dyeusdi seuratt _seuratt_ ratt_* seuratt_* gregex gkindel stfuaec seuratt- dyeusdi" link="http://www.seuratt.net/" sex="m">
+<user nick="milady" alias="milady_*" sex="f">
+<user nick="Zero" alias="zero zero* Zero*" sex="m" link="http://www.deadlights.org/">
+<user nick="RoxanneM" alias="roxannem* RoxanneM*" sex="f">
+<user nick="mnemophobe" alias="mnemo_*" link="http://math.washington.edu/~doherty/" sex="m">
+<user nick="kansasdave" alias="kansasdave*" sex="m">
+<user nick="anibas" alias="anibabe anibabe* anidinner" sex="f">
+<user nick="Ford" alias="ford* Ford*" sex="m"> 
+<user nick="Snookie" alias="snookie* Snookie*" sex="f">
+<user nick="LippyChick" alias="lipy LippyChick* Lippy* lippy* Lazy_Lippy Lippinator* Lippinator_* LippChick* Sick_Lippy Tipsy_lippy* MississLips Sippi_Lippy Sleepy_Lippy" sex="f">
+<user nick="MisterK" alias="misterk_* MisterK_* Mister-K" sex="m">
+<user nick="lawlbrarian" sex="f">
+<user nick="Muddseye" alias="Muddseye*" sex="m">
+<user nick="RedHerring" alias="redherring* RedHerring*" sex="m">
+<user nick="Ghost" alias="Ghost_* ghost_*" sex="f">
+<user nick="Aedeya" alias="aedeya_* Aedeya_*" sex="f">
+<user nick="Shardaen" alias="shardaen* Shardaen*" sex="m">
+<user nick="Ozx" sex="m">
+<user nick="malinourn" sex="m">
+<user nick="Major_Huddleston" sex="m">
+<user nick="Tolas" sex="m">
+<user nick="Kansas" sex="m">
+<user nick="DICECHUCKER" alias="dicechucker*" sex="m">
+<user nick="Ckain" alias="ckain* Ckain*" sex="m">
+<user nick="Tinyone" sex="f">
+<user nick="Vlorlich" alias="vlorlich* Vlorlich* Vlorlich_* Vlorlich_Again Vlorlich4 Vlor_* hola" sex="m">
+<user nick="Tina" sex="f">
+<user nick="Darkbettie" sex="f">
+<user nick="XxVenomxX">
+<user nick="Burning_Heretic">
+<user nick="Noonshadow" sex="f">
+<user nick="MajorHuddleston" sex="m">
+<user nick="amanda" sex="f">
+<user nick="veryne" alias="veryne* invisibleveryne veryickyickypitangzweebah" sex="f" link="http://www.odderthanartifice.com">
+<user nick="shalimar" sex="m">
+<user nick="Wormhorn" alias="\/\/orm}{orn" sex="m">
+<user nick="GLaDIOS" alias="gladios" sex="f" link="http://www.aperturescience.com/">
+<user nick="Shan" alias="shan* Shan* TheShadow TheShadow* WolfSamurai inmybunk Shanboob cranky5yearold Shadow" sex="m">
+<user nick="VanGoghsEar" alias="VanGoghsEar_* spleen NotAttila vangoghsear Mick_n_Ear IhateXmas vangoghsear VanGoghsEarCandles Ganymede dalisnostril" sex="f">
+<user nick="Mick" alias="mick Mick_the_Slick Deldarius" sex="m">
+<user nick="jesseygrrl" sex="f">
+<user nick="Toastette" sex="f">
+<user nick="DeputyMarshall" sex="m">
+<user nick="DinerInfinitum" sex="m" alias="DinerInfinitum* Cold Nice-n-Cold Coldymous ColdKitchenNightmares">
+#
+# bot section
+# sorry guys, you don't count
+<user nick="Aahz" ignore="y" sex="m">
+<user nick="miniblaarg" alias="miniblaarg*" ignore="y" sex="m">
+<user nick="STRDJBot" ignore="y">
+<user nick="Anonymous" alias="anonymous* Anonymous* guest* Guest* ircleuser" ignore="y">
+<user nick="has" ignore="y">
+<user nick="the" ignore="y">
+<user nick="triviabot" ignore="y">
+<user nick="botl33t" ignore="y" sex="f">
+#
+# were they ever really here?
+<user nick="Morbid_Angel" sex="f">
+<user nick="LaDyDeAtH" sex="f">
+#
+#
+ <channel="#tkop">
+#   LogDir="/home/g33k/irclogs/tkop/"
+   LogDir="/home/g33k/bots/logs/ChannelLogger/tkop/#tkop/"
+#  Format="irssi"
+   Format="supy"
+   Network="irc.tkop.com"
+   OutputFile="/var/www/irc.tkop.com/index.html"
+   Lang = "EN"
+   Maintainer ="unl33t"
+   PageFoot = "/home/g33k/saved/footer.txt"
+ </channel>
+#
+#<set ColorScheme="justgrey">
+<set Silent="1">
+<set DailyActivity="31">
+<set ShowActiveTimes="1">
+<set ShowActiveNicks="1">
+<set ShowBigNumbers="1">
+<set ShowTopics="1">
+<set ShowLines="1">
+<set ShowWpl="1">
+<set ShowCpl="1">
+<set ShowWords="1">
+<set ShowLastSeen="1">
+<set ShowTime="1">
+<set ShowLineTime="1">
+<set ShowWordTime="1">
+<set ShowRandQuote="1">
+<set ShowLegend="1">
+<set ShowKickLine="1">
+<set ShowActionLine="1">
+<set ShowShoutLine="1">
+<set ShowFoulLine="1">
+<set ShowViolentLines="1">
+<set ShowMuw="1">
+<set ShowMrn="1">
+<set ShowMru="1">
+<set ShowCharts="1">
+<set ChartsHistory="0">
+<set ShowOps="1">
+<set ShowVoices="0">
+<set ShowHalfops="0">
+<set ShowMostNicks="1">
+<set ShowActiveGenders="1">
+<set ShowSmileys="1">
+<set ShowKarma="0">
+<set ShowMostActiveByHour="1">
+<set ShowOnlyTop="0">
+<set ShowMostActiveByHour="1">
+<set ShowMostActiveByHourGraph="1">
+<set IgnoreWords="!op">
+<set NoIgnoredQuotes="1">
+<set FoulWords="fuck bitch damn asshole cunt shit dipshit fucker ass">
+<set ViolentWords="slaps beats kick kicks boottothehead wedgie hits">
+<set MinQuote="5">
+<set MaxQuote="100">
+<set BigNumbersThreshold="sqrt">
+<set ActiveNicks="10">
+<set ActiveNicks2="50">
+<set ActiveNicksByHour="10">
+<set MostNicksHistory="10">
+<set MostNicksVerbose="1">
+<set TopicHistory="5">
+<set UrlHistory="20">
+<set PicLocation="gfx/">
+<set TimeOffset="+0">
