@@ -1,8 +1,8 @@
-#! /usr/bin/perl
+#! /opt/local/bin/perl
 #
 #	packages you'll need
 #
-use Text::Capitalize 0.2;
+use Text::Capitalize;
 use IMDB::Film;
 #
 #	vars
