@@ -18,7 +18,6 @@ alias minecrap="ssh -L 8123:172.22.1.199:8123 minecrap@mc.ultimatefail.net"
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
-alias mc-map="overviewer.py --conf="/home/g33k/Home-Scripts/minecraft/minecraft-overviewer-config.py""
 alias mv="mv -v"
 
 #PS1='$PWD	#legacy prompt for the fun of it
@@ -34,4 +33,26 @@ if [ -f /opt/local/etc/bash_completion ]; then
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
+fi
+
+SSH_ENV=$HOME/.ssh/environment
+   
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+   
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
 fi
