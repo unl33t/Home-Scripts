@@ -8,4 +8,4 @@ cd /tmp/vmware-tools-distrib
 # run with -d to select all defaults
 sudo ./vmware-install.pl -d
 # cleanup
-umount /media/cdrom
+sudo umount /media/cdrom
