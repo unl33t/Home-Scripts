@@ -17,6 +17,6 @@ if ( `/bin/ps -ef | /bin/grep -v grep | /bin/grep -i screen | /bin/grep -i forge
 	}
         else {
         	print "...starting a new screen session for minecraft/forge/thing...\n";
-		exec('cd /home/g33k/minecraft/forge; /usr/bin/screen -d -m -S forge java -jar forge-1.7.10-10.13.2.1230-universal.jar') or print STDERR " crap! $! \n";
+		exec('cd /home/g33k/minecraft/sponge; /usr/bin/screen -d -m -S forge java -jar forge-1.8-11.14.3.1499-universal.jar') or print STDERR " crap! $! \n";
                 }
 

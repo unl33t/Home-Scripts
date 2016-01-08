@@ -16,25 +16,25 @@ pluginpath="/home/g33k/minecraft/prod/Minecraft/plugins";
 # Plugins
 MVversion="2.5";	# Multiverse-* Version
 MV="1";
-WEversion='5.5.2';	# WorldEdit Version
+WEversion='6.1.1';	# WorldEdit Version
 WE="1";
-WGversion='5.7.2';	# WorldGuard Version
+WGversion='6.1.1';	# WorldGuard Version
 WG="1";
-CBversion='2.2.1';	# CommandBook Version
+CBversion='2.5';	# CommandBook Version
 CB="1";
 CHversion='3.3.1';	# CommandHelper Version
 CH="0";
 mChatSuite='MChat-1.4.5-R0.1.12.jar';	# mChat Version
-MC="1";
+MC="0";
 NoCheat='';		# NoCheatPlus
 NC="1";
 HawkEye='';		# Hawkeye Reloaded
-HE="1";
+HE="0";
 # Das Bukkit
 bukkitvers='dev';	# Bukkit Version <dev|rb>
 BK="0";
 spigot='spigot.jar';	# Spigot version
-SPGT="1";
+SPGT="0";
 #
 #	Global prep
 #
@@ -45,7 +45,7 @@ cd $downloadpath;
 if [ $MV -eq 1 ]
 then
 	echo "Grabbing Multiverse parts";
-	for i in Core Portals Inventories Adventure 
+	for i in Core Portals # possible packages Inventories Adventure
 	do
 		$myget "http://ci.onarandombox.com/job/Multiverse-$i/lastSuccessfulBuild/artifact/target/Multiverse-$i-$MVversion.jar";
 		#mysize=$(ls -l $downloadpath/Multiverse-$i-$MVversion.jar | cut -d " " -f 5);
@@ -68,25 +68,25 @@ fi
 if [ $WE -eq 1 ]
 then
 	echo "Grabbing WorldEdit/WorldGuard";
-	$myget http://build.sk89q.com/job/WorldEdit/lastSuccessfulBuild/artifact/target/worldedit-$WEversion-SNAPSHOT.zip;
-	if [ -a $downloadpath/worldedit-$WEversion-SNAPSHOT.zip ]
+	$myget http://dev.bukkit.org/media/files/880/435/worldedit-bukkit-$WEversion.jar
+	$myget http://builds.enginehub.org/job/worldedit/7173/download/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar
+	if [ -a $downloadpath/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar ]
 		then
-			unzip -q $downloadpath/worldedit-$WEversion-SNAPSHOT.zip -d $downloadpath;
-			$mymv $downloadpath/WorldEdit.jar $pluginpath/WorldEdit.jar;
+			$mymv $downloadpath/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar $pluginpath/WorldEdit.jar;
 			rm -rf $downloadpath/*
 		else
-			echo "WorldEdit not downloaded, double check version number. http://build.sk89q.com/job/WorldEdit/";
+			echo "WorldEdit not downloaded, double check version number. http://builds.enginehub.org/job/worldedit/last-successful?branch=master";
 	fi
 else
 	echo "Skipping WorldEdit";
 fi
 if [ $WG -eq 1 ]
 then
-	$myget http://build.sk89q.com/job/WorldGuard/lastSuccessfulBuild/artifact/target/worldguard-$WGversion-SNAPSHOT.zip;
+        $myget http://builds.enginehub.org/job/worldguard/7151/download/worldguard-$WGversion-SNAPSHOT.zip
 	if [ -a $downloadpath/worldguard-$WGversion-SNAPSHOT.zip ]
 		then
 			unzip -q $downloadpath/worldguard-$WGversion-SNAPSHOT.zip -d $downloadpath;
-			$mymv $downloadpath/WorldGuard.jar $pluginpath/WorldGuard.jar;
+			$mymv $downloadpath/worldguard-$WGversion-SNAPSHOT.jar $pluginpath/WorldGuard.jar;
 			rm -rf $downloadpath/*
 		else
 			echo "WorldGuard not downloaded, double check version number. http://build.sk89q.com/job/WorldGuard/";
@@ -100,14 +100,15 @@ fi
 if [ $CB -eq 1 ]
 then
 	echo "Grabbing CommandBook"
-	$myget http://build.sk89q.com/job/CommandBook/lastSuccessfulBuild/artifact/target/commandbook-$CBversion-SNAPSHOT.zip;
+	$myget http://builds.enginehub.org/job/craftbook/7129/download/CraftBook-$CBversion-SNAPSHOT.jar
+	$myget http://builds.enginehub.org/job/commandbook/6997/download/commandbook-$CBversion-SNAPSHOT.zip
 	if [ -a $downloadpath/commandbook-$CBversion-SNAPSHOT.zip ]
 	        then
 			unzip -q $downloadpath/commandbook-$CBversion-SNAPSHOT.zip -d $downloadpath;
 	                $mymv $downloadpath/CommandBook.jar $pluginpath/CommandBook.jar;
 			rm -rf $downloadpath/*
 	        else
-	                echo "CommandBook not downloaded, double check version number. http://build.sk89q.com/job/CommandBook/";
+	                echo "CommandBook not downloaded, double check version number. http://builds.enginehub.org/job/commandbook/last-successful?branch=master";
 	fi
 else
 	echo "Skipping CommandBook";
@@ -149,7 +150,7 @@ fi
 if [ $NC -eq 1 ]
 then
         echo "Grabbing the latest dev NoCheatPlus";
-        $myget http://www.nocheatplus.org:8080/job/NoCheatPlus/lastSuccessfulBuild/artifact/target/NoCheatPlus.jar
+	$myget http://ci.md-5.net/job/NoCheatPlus/lastSuccessfulBuild/artifact/target/NoCheatPlus.jar
         if [ -a NoCheatPlus.jar ]
                 then
                         $mymv $downloadpath/NoCheatPlus.jar $pluginpath/NoCheatPlus.jar
@@ -200,12 +201,12 @@ then
         $myget "http://ci.ecocitycraft.com/job/Spigot/lastSuccessfulBuild/artifact/Spigot/target/$spigot"
         if [ -a $spigot ]
                 then
-                        $mymv $downloadpath/$spigot $pluginpath/../craftbukkit.jar
+                        $mymv $downloadpath/$spigot $pluginpath/../spigot.jar
                 else
                         echo "Latest Bukket not found, double check the source link http://ci.ecocitycraft.com/job/Spigot/";
         fi
 else
-        echo "Skipping CraftBukkit";
+        echo "Skipping Spigot";
 fi
 #
 #	done
