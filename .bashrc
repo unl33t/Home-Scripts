@@ -10,11 +10,10 @@ export DISPLAY=:0.0
 # e-travel
 #
 alias starwars='telnet towel.blinkenlights.nl'
+alias wtf='ssh wtfwasithinking.org'
 #
 # shortcuts
 #
-alias bobb="ssh -L 8123:172.22.1.199:8123 game.minecrap.net"
-alias minecrap="ssh -L 8123:172.22.1.199:8123 minecrap@mc.ultimatefail.net"
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
@@ -34,3 +33,6 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
 fi
+
+PERL_MB_OPT="--install_base \"/Users/g33k/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/g33k/perl5"; export PERL_MM_OPT;
