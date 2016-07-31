@@ -18,6 +18,12 @@ alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
 alias mv="mv -v"
+alias sshtop=ssh-top
+
+# functions
+ssh-top(){
+    ssh $1 -t htop
+}
 
 #PS1='$PWD	#legacy prompt for the fun of it
 #you are here ->'
