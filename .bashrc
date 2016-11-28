@@ -19,6 +19,7 @@ alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
 alias mv="mv -v"
 alias sshtop=ssh-top
+alias sizeme="sudo df -h /"
 
 # functions
 ssh-top(){
