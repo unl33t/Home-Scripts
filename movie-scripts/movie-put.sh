@@ -3,7 +3,7 @@
 #	Variables and fluctuations
 #
 srcpth="/Users/g33k/Desktop/Archived Movies";
-dstpth="/nfs/Video/Movies/Pending";
+dstpth="/Volumes/Videos/Movies/Pending";
 
 #
 #	Are there movies in the directory?
@@ -23,7 +23,7 @@ if [ $? == 1 ]
 			if [ $? == 0 ]
 				then	# yes, kill the local copy
 					echo "Remote $i found";
-					rm "$srcpth/$i";
+					#rm "$srcpth/$i";
 					echo "Local $i removed";
 				else	# No, just let me know it's not there.
 					echo "$i not found on server";
