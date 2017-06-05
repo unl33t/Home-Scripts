@@ -19,6 +19,7 @@ case "$choice" in
         tar -zxvf /media/cdrom/VMwareTools-* -C /tmp/
         cd /tmp/vmware-tools-distrib
         sudo ./vmware-install.pl -d
+        cd
         sudo umount /media/cdrom
         sudo rm -rf /tmp/vmware-tools-distrib
         ;;

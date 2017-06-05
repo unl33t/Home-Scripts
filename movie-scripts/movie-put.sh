@@ -2,8 +2,8 @@
 #
 #	Variables and fluctuations
 #
-srcpth="/Users/g33k/Desktop/Archived Movies/Prepped";
-dstpth="/Volumes/Video/Movies/Pending";
+srcpth="/Users/g33k/Desktop/Archived Movies";
+dstpth="/nfs/Video/Movies/Pending";
 
 #
 #	Are there movies in the directory?

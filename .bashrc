@@ -15,11 +15,13 @@ alias wtf='ssh wtfwasithinking.org'
 # shortcuts
 #
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
+alias ping="mtr"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
 alias mv="mv -v"
 alias sshtop=ssh-top
 alias sizeme="sudo df -h /"
+alias tree="tree -I @ea*"
 
 # functions
 ssh-top(){
