@@ -16,11 +16,17 @@ system "rsync -avzH --progress --include=\"*.m4v\" --exclude=\"*\" \"$src/\" $ds
 $getlist = "ls \"$src\" | grep .m4v";
 @movielist = `$getlist`;
 chomp @movielist;
+$allgood = "0";
 foreach $movie (@movielist) {
     if ( -e "$dst/$movie" ) {
         print "$movie fond! Removing local copy.\n";
         system "rm \"$src/$movie\"";
+        $allgood = "1";
     } else {
         print "$movie not found in Pending, skipping.\n";
     }
 }
+if ( $allgood == 1 ) {
+    print ("Go forth and sort thy movies!");
+    system cd "/Volumes/Videos/Movies/Pending";
+    }
