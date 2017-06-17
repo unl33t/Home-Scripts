@@ -27,5 +27,5 @@ foreach $movie (@movielist) {
     }
 }
 if ( $allgood == 1 ) {
-    print ("Go forth and sort thy movies!  ( cd /Volumes/Videos/Movies/Pending )");
+    print ("Go forth and sort thy movies!  ( cd $dst )i\n\n");
 }
