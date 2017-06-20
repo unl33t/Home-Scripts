@@ -12,7 +12,7 @@ if (is_folder_empty($src)) {
 } else {
     print "Files found, carry on...\n";
 }
-system "rsync -avzH --progress --include=\"*.m4v\" --exclude=\"*\" \"$src/\" $dst/";
+system "rsync -avzh --progress --include=\"*.m4v\" --exclude=\"*\" \"$src/\" $dst/";
 $getlist = "ls \"$src\" | grep .m4v";
 @movielist = `$getlist`;
 chomp @movielist;
