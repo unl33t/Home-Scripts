@@ -32,12 +32,10 @@ function find_it($tword) {
 			}
 		}
 		if($wcount == $wcheck) {
-			#echo "Is ".$wcount." = ".$wcheck."? ";
 			array_push($found, $movie);
+			$wcheck = 0;
 		}
-		$wcheck = 0;
 	}
-	#print_r($found);
 	return array_unique($found);
 }
 
@@ -87,8 +85,11 @@ echo "</form>";
 
 $terms = explode(" ",$_POST["tword"]);
 $pmovies = find_it($terms);
-print_movie($pmovies);
-
+if($pmovies) {
+	print_movie($pmovies);
+} else {
+	echo "No maches found.";
+}
 echo "<br><br>";
 #
 #	Actual Listing
@@ -126,7 +127,5 @@ echo "<table>";
 echo "</div>"
 ?>
 
-Admin Links:<br>
-<a href="../phpsysinfo/">PHPSysInfo</a>
 </body>
 </html>
