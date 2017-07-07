@@ -29,6 +29,8 @@ function find_it($tword) {
 		foreach($tword as $word) {
 			if (strpos(strtolower($movie), strtolower($word))) {
 				$wcheck++;
+			} else {
+				$wcheck = 0;
 			}
 		}
 		if($wcount == $wcheck) {
