@@ -1,6 +1,6 @@
 #!/usr/bin/perl
-$src = "/Users/g33k/Desktop/Archived Movies/Prepped/";
-$dst = "pantry:/volume1/Videos/Movies/Pending/";
+$src = "/Users/g33k/Desktop/Archived Movies/Prepped";
+$dst = "/Volumes/Videos/Movies/Pending";
 sub is_folder_empty {
     my $dirname = shift;
     opendir(my $dh, $dirname) or die "Not a directory";
@@ -12,7 +12,7 @@ if (is_folder_empty($src)) {
 } else {
     print "Files found, carry on...\n";
 }
-system "rsync -avzh --progress --include=\"*.m4v\" --exclude=\"*\" \"$src\" \"$dst\"";
+system "rsync -avzh --progress --include=\"*.m4v\" --exclude=\"*\" \"$src/\" $dst/";
 $getlist = "ls \"$src\" | grep .m4v";
 @movielist = `$getlist`;
 chomp @movielist;
