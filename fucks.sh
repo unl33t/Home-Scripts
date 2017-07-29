@@ -9,7 +9,7 @@ else
     while [ $fucks -gt 0 ] ; do
         echo "$fucks    Fucks left, use them wisely"
         let fucks-=1
-        sleep 5
+        sleep $(( ( RANDOM % 30 )  + 1 ))
     done
     echo "All out of fucks, oh well."
 fi
