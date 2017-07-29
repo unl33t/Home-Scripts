@@ -7,7 +7,7 @@ elif [ $fucks -lt 0 ] ; then
     echo "Whoa, a negagive amount of Fucks!  RUN!"
 else
     while [ $fucks -gt 0 ] ; do
-        echo "$fucks Fucks left, use them wisely"
+        echo "$fucks    Fucks left, use them wisely"
         let fucks-=1
         sleep 5
     done
