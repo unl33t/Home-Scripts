@@ -1,7 +1,9 @@
 #!/bin/bash
-echo -n "Pless enter the number of Fucks available: "
-read fucks
-echo -e "\n"
+fucks=$RANDOM
+let "fucks %= 100"
+let fucks-=1
+
+echo -e "Fucks alotted:    $fucks\n"
 if [ $fucks -eq 0 ] ; then
     echo -e "No fucks given\n"
 elif [ $fucks -lt 0 ] ; then
