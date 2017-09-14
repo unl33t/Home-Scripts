@@ -22,36 +22,36 @@ echo "[F]ucks"
 echo "[K]eeping"
 echo "[S]ystem"
 echo -e "\n"
-maxfks="100"
-fks=$RANDOM
-let "fks %= maxfks"
-let fks-=1
-echo -e "fks alotted:    $fks\n"
-if [ $fks -eq 0 ] ; then
-    echo -e "No fks given\n"
-elif [ $fks -lt 0 ] ; then
-    echo -e "Whoa, a negagive amount of fks!  RUN!\n"
+maxfucks="100"
+fucks=$RANDOM
+let "fucks %= maxfucks"
+let fucks-=1
+echo -e "fucks alotted:    $fucks\n"
+if [ $fucks -eq 0 ] ; then
+    echo -e "No fucks given\n"
+elif [ $fucks -lt 0 ] ; then
+    echo -e "Whoa, a negagive amount of fucks!  RUN!\n"
 else
-    while [ $fks -gt 0 ] ; do
+    while [ $fucks -gt 0 ] ; do
         if [ ! -z "$rt" ]
         then
             echo -e "  (that Fuck lasted $rt seconds!)\n"
         fi
         
         drop=$RANDOM
-        let "drop %= maxfks"
-        if [ fks == drop ]
+        let "drop %= maxfucks"
+        if [ fucks == drop ]
         then
-            echo "Dropped a fks, don't care."
+            echo "Dropped a fuck, don't care."
             rt="0"
         else
             rt=$RANDOM
             let "rt %= 60"
-            echo "$fks    fks left, use them wisely"
-            let fks-=1
+            echo "$fucks    fucks left, use them wisely"
+            let fucks-=1
             sleep $rt
         fi
     done
-    echo -e "  (that Fuck lasted $rt seconds!)\n"
-    echo "All out of fks, oh well."
+    echo -e "  (that fuck lasted $rt seconds!)\n"
+    echo "All out of fucks, oh well."
 fi
