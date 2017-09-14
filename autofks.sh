@@ -26,7 +26,7 @@ maxfucks="100"
 fucks=$RANDOM
 let "fucks %= maxfucks"
 let fucks-=1
-echo -e "fucks alotted:    $fucks\n"
+echo -e "Fucks alotted:    $fucks\n"
 if [ $fucks -eq 0 ] ; then
     echo -e "No fucks given\n"
 elif [ $fucks -lt 0 ] ; then
