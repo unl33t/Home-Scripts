@@ -22,6 +22,8 @@ alias mv="mv -v"
 alias sshtop=ssh-top
 alias sizeme="sudo df -h /"
 alias tree="tree -I @ea*"
+alias size=" du -h -d 1; df -h ."
+alias vi="vim"
 
 # functions
 ssh-top(){
