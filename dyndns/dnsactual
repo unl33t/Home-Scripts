@@ -10,7 +10,7 @@
 #  other programs needed:
 #		lynx - text web browser
 #  optional programs:
-#		twidge
+#		t (ruby gem)
 #  Author: Ernest Danton
 #  Date: 01/29/2007
 #
@@ -33,12 +33,12 @@ if [ "$CurrIP" = "$CacheIP" ]
 	then
 #	Both IPs are equal
 		sleep 1
-		/usr/bin/twidge update "$CurrIP `date`"
+		/usr/local/bin/t update "$CurrIP `date`"
 		#echo "$CurrIP `date`"
 	else
 #	The IP has changed
 		sleep 1
-		/usr/bin/twidge update "$CurrIP `date` IP has changed @unl33t"
+		/usr/local/bin/t update "$CurrIP `date` IP has changed @unl33t"
 		#echo "$CurrIP `date` IP has changed @unl33t"
 		for i in `cat domains.txt`
 			do
