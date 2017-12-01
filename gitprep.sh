@@ -1,10 +1,10 @@
 #!/bin/bash
-git pull
-echo -n "Was anything sucked down? (y/n):   "
-read updates
+read -r -p "Did you 'git pull' first? [Y/n] " updates
 
-if [ $updates -eq y ] ; then
-    echo "Make sure nothing was overwritten!"
+if [[ "$updates" =~ ^([yY][eE][sS]|[yY])+$ ]] ; then
+    echo "Good, carry on!"
+else
+    echo "Bailing! do a pull, asses damage then get back to me"
     exit
 fi
 
