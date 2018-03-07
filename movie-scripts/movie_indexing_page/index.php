@@ -20,6 +20,9 @@ include 'data.php';
             if (this.readyState==4 && this.status==200) {
                 document.getElementById("livesearch").innerHTML=this.responseText;
                 document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+                document.getElementById("livesearch").style.Width="25%";
+                document.getElementById("livesearch").style.maxWidth="50%";
+                document.getElementById("livesearch").style.marginLeft="100px";
             }
         }
         xmlhttp.open("GET","livesearch.php?q="+str,true);
@@ -38,7 +41,7 @@ include 'data.php';
 <br><h2 align="center">Movie Listing</h2><br>
 
 <form>
-    Movie Search: <input type="text" size="60" onkeyup="showResult(this.value)">
+    Movie Search: <input type="text" size="50px" onkeyup="showResult(this.value)" autofocus>
     <div id="livesearch"></div>
 </form>
 
