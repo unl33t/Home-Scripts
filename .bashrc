@@ -45,5 +45,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
 fi
 
+if [ -f /usr/bin/colortail ]; then
+    alias tail="colortail"
+fi
+
 PERL_MB_OPT="--install_base \"/Users/g33k/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/g33k/perl5"; export PERL_MM_OPT;
