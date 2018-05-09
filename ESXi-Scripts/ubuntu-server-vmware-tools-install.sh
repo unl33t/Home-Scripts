@@ -8,10 +8,10 @@ choice="0"
 read choice
 case "$choice" in
     '0' )
-        echo "You need to chose something"
+        echo "You chose not to make a choice, bravo"
         ;;
-    '1' )   
-        sudo aptitude install open-vm-tools
+    '1' )
+        sudo apt install open-vm-tools
         ;;
     '2' )
         echo "Make sure you've mounted the iso!"

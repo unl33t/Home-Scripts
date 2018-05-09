@@ -15,6 +15,7 @@ alias wtf='ssh wtfwasithinking.org'
 # shortcuts
 #
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
+alias moviesync="~/Home-Scripts/movie-scripts/moviesync.pl"
 alias ping="mtr"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
