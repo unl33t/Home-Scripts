@@ -10,7 +10,7 @@ function find_it($tword) {
     $tword = preg_replace("/[^ \w]+/", "", $tword);
 	$output = array();
 	$found = array();
-	exec("find /nfs/Videos/Movies -iname *.m4v -type f -print | sort | cut -d / -f 5-9 | grep -v eaDir", $output);
+	exec("find /nfs/Videos/Movies \( -iname \*.m4v -o -iname \*.mp4 \) -type f -print | sort | cut -d / -f 5-9 | grep -v eaDir", $output);
 	$wcount = count($tword);
 	$wcheck = 0;
 	foreach($output as $movie) {
