@@ -1,6 +1,6 @@
 # .bashrc
 
-PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/sw/bin:/Library/MySQL/bin:/usr/local/mysql-5.0.37-osx10.4-powerpc/bin/:/opt/local/bin:/opt/local/sbin:"
+PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/sw/bin:/Library/MySQL/bin:/usr/local/mysql-5.0.37-osx10.4-powerpc/bin/:/opt/local/bin:/opt/local/sbin:/snap/bin:"
 
 export PATH
 export DISPLAY=:0.0
@@ -15,7 +15,6 @@ alias wtf='ssh wtfwasithinking.org'
 # shortcuts
 #
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
-alias moviesync="~/Home-Scripts/movie-scripts/moviesync.pl"
 alias ping="mtr"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
