@@ -37,7 +37,7 @@ else
         then
             echo -e "  (that Fuck lasted $rt seconds!)\n"
         fi
-        
+
         drop=$RANDOM
         let "drop %= maxfucks"
         if [ fucks == drop ]
