@@ -1,3 +1,0 @@
-set upper_lines 8
-run -upper htop
-set login on
