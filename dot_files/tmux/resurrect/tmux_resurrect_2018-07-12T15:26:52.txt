@@ -1,4 +1,0 @@
-pane	0	0	:bash	1	:*	0	:/home/g33k/.tmux/plugins	0	htop	:htop
-pane	0	0	:bash	1	:*	1	:/home/g33k/.tmux/plugins	1	bash	:
-window	0	0	1	:*	fcc2,100x37,0,0[100x8,0,0,2,100x28,0,9,3]
-state	0	
