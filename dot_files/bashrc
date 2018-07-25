@@ -15,7 +15,6 @@ alias wtf='ssh wtfwasithinking.org'
 # shortcuts
 #
 alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
-alias ping="mtr"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
 alias mv="mv -v"
@@ -24,6 +23,10 @@ alias sizeme="sudo df -h /"
 alias tree="tree -I @ea*"
 alias size=" du -h -d 1; df -h ."
 alias vi="vim"
+
+#if [ -x "$(mtr)" ]; then
+#    alias ping="mtr"
+#fi
 
 # functions
 force_color_prompt=yes
