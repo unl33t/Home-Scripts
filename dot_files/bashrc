@@ -4,7 +4,19 @@ PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/sw/bin:/Library/MySQL/bin:/u
 
 export PATH
 
-# User specific aliases and functions
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors  ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+
+
 #
 # e-travel
 #
@@ -25,7 +37,11 @@ alias vi="vim"
 if [ -x "$(command -v mtr)" ]; then
     alias ping="mtr"
 fi
-
+if [ -x "$(command -v multitail)" ]; then
+    alias tail="multitail"
+else
+    echo "Consider installing multitail"
+fi
 
 
 # functions
