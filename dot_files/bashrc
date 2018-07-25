@@ -3,7 +3,6 @@
 PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/sw/bin:/Library/MySQL/bin:/usr/local/mysql-5.0.37-osx10.4-powerpc/bin/:/opt/local/bin:/opt/local/sbin:/snap/bin:"
 
 export PATH
-export DISPLAY=:0.0
 
 # User specific aliases and functions
 #
@@ -18,15 +17,16 @@ alias moviefix="~/Home-Scripts/movie-scripts/movienamefix.pl"
 alias check="~/Home-Scripts/check.sh"
 alias sc="screen -dr"
 alias mv="mv -v"
-alias sshtop=ssh-top
 alias sizeme="sudo df -h /"
 alias tree="tree -I @ea*"
 alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 
-#if [ -x "$(mtr)" ]; then
-#    alias ping="mtr"
-#fi
+if [ -x "$(command -v mtr)" ]; then
+    alias ping="mtr"
+fi
+
+
 
 # functions
 force_color_prompt=yes
