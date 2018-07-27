@@ -1,8 +1,0 @@
-#!/usr/bin/expect -f
-#usage kick_vms.expect <password>
-spawn ssh fridge
-expect "Password:"
-send "[lindex $argv 1]\r"
-expect "\[root@fridge:~\]" { send "sh for i in 6 13; do; if vim-cmd vmsvc/power.getstate $i | grep -i \"Powered off\"; then; vim-cmd vmsvc/power.on $i; fi; done\r" }
-expect "\[root@fridge:~\]"
-send "exit\r"
