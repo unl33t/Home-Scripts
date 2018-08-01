@@ -2,6 +2,8 @@
 
 #function
 start_tmux(){
+    # java -Xmx12G -Xms8G -mar spigot.jar
+    tmux new-session -s Spigot "java -Xmx12G -Xms8G -jar spigot.jar"
 
 }
 
