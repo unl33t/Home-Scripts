@@ -14,18 +14,16 @@ got_session="0" # brain
 #work
 
 # is there a body?
-if [ -f minecraft_server.pid ]; then
-    echo "It's running, go find a session";
-    got_pid="1"
-fi
+got_pid=$(ps -ef | grep Spigot | grep java | wc -l)
 
 # is there a brain?
-tsession=$(tmux ls)
+tsession=$(tmux ls | cut -d ":" -f 1)
 if [[ $tsession = "Spigot"  ]]; then
     echo "Session Found"
     got_session="1"
 fi
 
+echo "pid = $got_pid / session = $got_session"
 # if there's a body, but no brain.  Dispose of the body and start new
 if [ $got_pid -eq "1" ] && [ $got_session -eq "0" ]; then
     rm -f minecraft_server.pid
