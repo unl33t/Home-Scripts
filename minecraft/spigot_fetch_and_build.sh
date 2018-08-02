@@ -8,8 +8,8 @@
 #
 
 #rm BuildTools.jar
-rm craftbukkit*.jar
-rm spigot*.jar
+#rm craftbukkit*.jar
+#rm spigot*.jar
 
 if [ ! -f BuildTools.jar ]; then
     wget "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar" -O BuildTools.jar
