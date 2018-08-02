@@ -11,30 +11,23 @@ if [ "$1" == "-v" ]
 		mymv="mv";
 fi
 # Paths
-downloadpath="/home/g33k/minecraft/prod/Minecraft/plugins/pending";
-pluginpath="/home/g33k/minecraft/prod/Minecraft/plugins";
+downloadpath="/home/g33k/minecraft/prod/plugins/pending";
+pluginpath="/home/g33k/minecraft/prod/plugins";
 # Plugins
-MVversion="2.5";	# Multiverse-* Version
+MVversion="2.6.0";	# Multiverse-* Version
 MV="1";
-WEversion='6.1.1';	# WorldEdit Version
+MVPversion="2.5.2"; # Multiverse-Portals Version
+MVP="1";
+WEversion='6.1.9';	# WorldEdit Version
 WE="1";
-WGversion='6.1.1';	# WorldGuard Version
+WGversion='6.2.2';	# WorldGuard Version
 WG="1";
 CBversion='2.5';	# CommandBook Version
 CB="1";
-CHversion='3.3.1';	# CommandHelper Version
-CH="0";
-mChatSuite='MChat-1.4.5-R0.1.12.jar';	# mChat Version
-MC="0";
+CHversion='3.3.2';	# CommandHelper Version
+CH="1";
 NoCheat='';		# NoCheatPlus
 NC="1";
-HawkEye='';		# Hawkeye Reloaded
-HE="0";
-# Das Bukkit
-bukkitvers='dev';	# Bukkit Version <dev|rb>
-BK="0";
-spigot='spigot.jar';	# Spigot version
-SPGT="0";
 #
 #	Global prep
 #
@@ -45,13 +38,11 @@ cd $downloadpath;
 if [ $MV -eq 1 ]
 then
 	echo "Grabbing Multiverse parts";
-	for i in Core Portals # possible packages Inventories Adventure
+	for i in Core
+		# possible packages Inventories Adventure
 	do
-		$myget "http://ci.onarandombox.com/job/Multiverse-$i/lastSuccessfulBuild/artifact/target/Multiverse-$i-$MVversion.jar";
-		#mysize=$(ls -l $downloadpath/Multiverse-$i-$MVversion.jar | cut -d " " -f 5);
-		#echo $mysize;
+		$myget http://ci.onarandombox.com/job/Multiverse-$i/lastSuccessfulBuild/artifact/target/Multiverse-$i-$MVversion.jar --no-check-certificate
 		if [ -a $downloadpath/Multiverse-$i-$MVversion.jar ]
-		#if [ $mysize -gt 3000 ]
 			then
 				$mymv $downloadpath/Multiverse-$i-$MVversion.jar $pluginpath/Multiverse-$i.jar
 			else
@@ -63,13 +54,29 @@ else
 	echo "Skipping Multiverse"
 fi
 #
+#   Multiverse-Portals
+#
+if [ $MVP -eq 1 ]
+    then
+        echo "Grabbing Multiverse-Portals";
+        $myget https://ci.onarandombox.com/job/Multiverse-Portals/lastSuccessfulBuild/artifact/target/Multiverse-Portals-$MVPversion-SNAPSHOT.jar --no-check-certificate
+        if [ -a $downloadpath/Multiverse-Portals-$MVPversion-SNAPSHOT.jar ]
+            then
+                $mymv $downloadpath/Multiverse-Portals-$MVPversion-SNAPSHOT.jar $pluginpath/Multiverse-Portals.jar
+            else
+            #rm $downloadpath/Multiverse-$i-$MVversion.jar
+                echo "Multiverse-Portals not downloaded, double check version number. http://ci.onarandombox.com/job/Multiverse-Portals";
+        fi
+    else
+        echo "Skipping Multiverse-Portals"
+fi
+#
 #	WorldEdit/WorldGuard
 #
 if [ $WE -eq 1 ]
 then
 	echo "Grabbing WorldEdit/WorldGuard";
-	$myget http://dev.bukkit.org/media/files/880/435/worldedit-bukkit-$WEversion.jar
-	$myget http://builds.enginehub.org/job/worldedit/7173/download/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar
+    $myget http://builds.enginehub.org/job/worldedit/10010/download/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar
 	if [ -a $downloadpath/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar ]
 		then
 			$mymv $downloadpath/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar $pluginpath/WorldEdit.jar;
@@ -82,14 +89,13 @@ else
 fi
 if [ $WG -eq 1 ]
 then
-        $myget http://builds.enginehub.org/job/worldguard/7151/download/worldguard-$WGversion-SNAPSHOT.zip
-	if [ -a $downloadpath/worldguard-$WGversion-SNAPSHOT.zip ]
+    $myget http://builds.enginehub.org/job/worldguard/9934/download/worldguard-legacy-$WGversion-SNAPSHOT-dist.jar
+	if [ -a $downloadpath/worldguard-legacy-$WGversion-SNAPSHOT-dist.jar ]
 		then
-			unzip -q $downloadpath/worldguard-$WGversion-SNAPSHOT.zip -d $downloadpath;
-			$mymv $downloadpath/worldguard-$WGversion-SNAPSHOT.jar $pluginpath/WorldGuard.jar;
-			rm -rf $downloadpath/*
+			$mymv $downloadpath/worldguard-legacy-$WGversion-SNAPSHOT-dist.jar $pluginpath/WorldGuard.jar;
+			#rm -rf $downloadpath/*
 		else
-			echo "WorldGuard not downloaded, double check version number. http://build.sk89q.com/job/WorldGuard/";
+			echo "WorldGuard not downloaded, double check version number. http://builds.enginehub.org/job/worldguard/last-successful?branch=master";
 	fi
 else
 	echo "Skipping WorldGuard";
@@ -100,8 +106,7 @@ fi
 if [ $CB -eq 1 ]
 then
 	echo "Grabbing CommandBook"
-	$myget http://builds.enginehub.org/job/craftbook/7129/download/CraftBook-$CBversion-SNAPSHOT.jar
-	$myget http://builds.enginehub.org/job/commandbook/6997/download/commandbook-$CBversion-SNAPSHOT.zip
+    $myget http://builds.enginehub.org/job/commandbook/9546/download/commandbook-$CBversion-SNAPSHOT.zip
 	if [ -a $downloadpath/commandbook-$CBversion-SNAPSHOT.zip ]
 	        then
 			unzip -q $downloadpath/commandbook-$CBversion-SNAPSHOT.zip -d $downloadpath;
@@ -115,11 +120,11 @@ else
 fi
 #
 #	CommandHelper
-#	
+#
 if [ $CH -eq 1 ]
 then
 	echo "Grabbing CommandHelper"
-	$myget http://build.sk89q.com/job/CommandHelper/lastSuccessfulBuild/artifact/target/commandhelper-$CHversion-SNAPSHOT.jar
+    $myget http://builds.enginehub.org/job/commandhelper/10028/download/commandhelper-$CHversion-SNAPSHOT.jar
 	if [ -a $downloadpath/commandhelper-$CHversion-SNAPSHOT.jar ]
 	        then
 	                $mymv $downloadpath/commandhelper-$CHversion-SNAPSHOT.jar $pluginpath/CommandHelper.jar;
@@ -128,22 +133,6 @@ then
 	fi
 else
 	echo "Skipping CommandHelper";
-fi
-#
-#	mChatSuit
-#
-if [ $MC -eq 1 ]
-then
-	echo "Grabbing mChat";
-	$myget http://ci.mdev.in/job/MChat/lastSuccessfulBuild/artifact/target/$mChatSuite
-	if [ -a $mChatSuite ]
-	        then
-	                $mymv $downloadpath/$mChatSuite $pluginpath/mChat.jar
-	        else
-	                echo "mChat update not found, double check the source link http://ci.mdev.in/job/MChat/";
-	fi
-else
-	echo "Skipping mChatSuite"
 fi
 #	NoCheatPlus Plugin
 #
@@ -159,54 +148,6 @@ then
         fi
 else
         echo "Skipping NoCheatPlus";
-fi
-#
-#       HawkEye Plugin
-#
-if [ $HE -eq 1 ]
-then
-        echo "Grabbing the latest dev HawkEye";
-        $myget http://ci.danru.com.br:8080/job/Hawkeye-Reload/lastSuccessfulBuild/artifact/target/HawkEye.jar
-        if [ -a HawkEye.jar ]
-                then
-                        $mymv $downloadpath/HawkEye.jar $pluginpath/HawkEye.jar
-                else
-                        echo "HawkEye not found, double check the source link http://ci.danru.com.br:8080/job/Hawkeye-Reload/";
-        fi
-else
-        echo "Skipping HawkEye";
-fi
-#
-#	das bukket
-#
-if [ $BK -eq 1 ]
-then
-	echo "Grabbing the latest $bukkitvers Bukket";
-	$myget "http://dl.bukkit.org/latest-$bukkitvers/craftbukkit.jar"
-	if [ -a craftbukkit.jar ]
-		then
-			$mymv $downloadpath/craftbukkit.jar $pluginpath/../craftbukkit.jar
-		else
-			echo "Latest Bukket not found, double check the source link http://http://repo.bukkit.org/index.html#nexus-search;quick~craftbukkit/";
-	fi
-else
-	echo "Skipping CraftBukkit";
-fi
-#
-#	Spigot
-#
-if [ $SPGT -eq 1 ]
-then
-        echo "Grabbing the latest CraftBukket++";
-        $myget "http://ci.ecocitycraft.com/job/Spigot/lastSuccessfulBuild/artifact/Spigot/target/$spigot"
-        if [ -a $spigot ]
-                then
-                        $mymv $downloadpath/$spigot $pluginpath/../spigot.jar
-                else
-                        echo "Latest Bukket not found, double check the source link http://ci.ecocitycraft.com/job/Spigot/";
-        fi
-else
-        echo "Skipping Spigot";
 fi
 #
 #	done
