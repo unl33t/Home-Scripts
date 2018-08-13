@@ -21,7 +21,7 @@ fi
 # e-travel
 #
 alias starwars='telnet towel.blinkenlights.nl'
-alias wtf='ssh wtfwasithinking.org'
+alias wtf='ssh g33k@wtfwasithinking.org'
 #
 # shortcuts
 #
