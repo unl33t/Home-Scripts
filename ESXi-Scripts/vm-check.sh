@@ -1,2 +1,2 @@
 #! /bin/sh
-ssh root@fridge vim-cmd vmsvc/getallvms
+ssh fridge vim-cmd vmsvc/getallvms

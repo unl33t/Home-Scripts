@@ -8,7 +8,8 @@ foreach($guest in $VMList){
     Write-Host ("The sate of $Name is $PowerState")
     if($PowerState -eq "PoweredOff"){
         Write-Host("Starting $guest")
-        Start-VM $guest.Name
+        Start-VM $Name
         }
 }
+Get-VM
 Disconnect-VIServer fridge

@@ -1,2 +1,2 @@
 #!/bin/sh
-ssh root@fridge esxcli storage nfs list
+ssh fridge esxcli storage nfs list
