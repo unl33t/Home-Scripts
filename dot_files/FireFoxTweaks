@@ -1,0 +1,11 @@
+about:config
+    Turn off redirect notice
+        set accessibility.blockautorefresh to false
+
+    Twist to tab switch (macOS)
+        browser.gesture.twist.left  Browser:PrevTab
+        browser.gesture.twist.right Browser:NextTab
+        browser.gesture.twist.threshold 43
+
+
+
