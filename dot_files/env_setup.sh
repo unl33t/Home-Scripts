@@ -22,7 +22,13 @@ then
         mv ~/.tmux ~/.tmux.old
     fi
 fi
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ -d ~/.tmux/plugins/tpm ]
+then
+    cd ~/.tmux/plugins/tpm
+    git pull
+else
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 echo "Run 'Ctrl-B Shft-I' from withing tmux to enable plugins"
 #
 #   Setting up vimrc
@@ -32,7 +38,13 @@ if [ -f ~/.vimrc ]
 then
     mv ~/.vimrc ~/.vimrc.old
 fi
-git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+if [ -d ~/.vim_runtime ]
+then
+    cd ~/.vim_runtime
+    git pull
+else
+    git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+fi
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 #
 #   Refresh Env (might require a logout)
