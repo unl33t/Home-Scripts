@@ -16,7 +16,7 @@ echo "Setting up tmux env"
 if [ ! -L ~/.tmux.conf ]
 then
     mv ~/.tmux.conf ~/.tmux.conf.old
-    ln -s ~/Home-Scripts/dot_files/tmux.conf ~/.tmux.conf
+    ln -s ~/Home-Scripts/dotr_files/tmux.conf ~/.tmux.conf
     if [ -f ~/.tmux ]
     then
         mv ~/.tmux ~/.tmux.old
@@ -46,6 +46,15 @@ else
     git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 fi
 sh ~/.vim_runtime/install_awesome_vimrc.sh
+#
+#   Setting up mlterm
+#
+echo "Setting up mlterm"
+if [ ! -L ~/.mlterm ]
+then
+    mv ~/.mlterm ~/.mlterm.old
+    ln -s ~/Home-Scripts/dot_files/mlterm ~/.mlterm
+fi
 #
 #   Refresh Env (might require a logout)
 #

@@ -1,0 +1,19 @@
+# enable transparancy
+use_transbg = true
+brightness = 20
+fade_ratio = 75
+
+
+# fg and bg colors
+fg_color = white
+bg_color = black
+
+scrollbar_mode = none
+borderless = true
+
+fontsize = 12
+use_anti_alias = true
+bel_mode = visual
+logsize = 4096
+name = xterm
+word_separators = " ,;="

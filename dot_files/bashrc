@@ -35,6 +35,9 @@ alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 alias aptall="apt update ; apt upgrade ; apt autoremove"
 
+if [ ! -x "$(command -v mlterm)" ]; then
+    echo "Consider installing mlterm"
+fi
 if [ -x "$(command -v mtr)" ]; then
     alias ping="mtr"
 fi
@@ -42,6 +45,11 @@ if [ -x "$(command -v multitail)" ]; then
     alias tail="multitail"
 else
     echo "Consider installing multitail"
+fi
+if [ -x "$(command -v img2sixel)" ]; then
+    alias peek="img2sixel -w 100px"
+else
+    echo "Consider installing libsixel-bin"
 fi
 
 
