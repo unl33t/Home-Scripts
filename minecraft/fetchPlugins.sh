@@ -41,7 +41,7 @@ if [ $MV -eq 1 ]
 then
 	echo "Grabbing Multiverse parts";
 	for i in Core
-		# possible packages Inventories Adventure
+		# possible packages: Portals Inventories Adventure
 	do
 		$myget http://ci.onarandombox.com/job/Multiverse-$i/lastSuccessfulBuild/artifact/target/Multiverse-$i-$MVversion.jar --no-check-certificate
 		if [ -a $downloadpath/Multiverse-$i-$MVversion.jar ]
