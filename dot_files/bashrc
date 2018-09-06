@@ -35,16 +35,13 @@ alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 alias aptall="apt update ; apt upgrade ; apt autoremove"
 
-if [ ! -x "$(command -v mlterm)" ]; then
-    echo "Consider installing mlterm"
-fi
 if [ -x "$(command -v mtr)" ]; then
     alias ping="mtr"
 fi
 if [ -x "$(command -v colortail)" ]; then
     alias tail="colortail"
 else
-    echo "Consider installing multitail"
+    echo "Consider installing colortail"
 fi
 
 # functions
