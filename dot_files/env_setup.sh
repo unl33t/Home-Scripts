@@ -47,15 +47,6 @@ else
 fi
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 #
-#   Setting up mlterm
-#
-echo "Setting up mlterm"
-if [ ! -L ~/.mlterm ]
-then
-    mv ~/.mlterm ~/.mlterm.old
-    ln -s ~/Home-Scripts/dot_files/mlterm ~/.mlterm
-fi
-#
 #   Refresh Env (might require a logout)
 #
 source ~/.bashrc

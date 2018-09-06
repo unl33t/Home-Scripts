@@ -41,17 +41,11 @@ fi
 if [ -x "$(command -v mtr)" ]; then
     alias ping="mtr"
 fi
-if [ -x "$(command -v multitail)" ]; then
-    alias tail="multitail"
+if [ -x "$(command -v colortail)" ]; then
+    alias tail="colortail"
 else
     echo "Consider installing multitail"
 fi
-if [ -x "$(command -v img2sixel)" ]; then
-    alias peek="img2sixel -w 100px"
-else
-    echo "Consider installing libsixel-bin"
-fi
-
 
 # functions
 force_color_prompt=yes
