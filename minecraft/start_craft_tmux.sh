@@ -15,6 +15,9 @@ got_session="0" # brain
 
 # is there a body?
 got_pid=$(ps -ef | grep spigot | grep java | wc -l)
+if [[ $got_pid -gt "1" ]]; then
+    got_pid="1"
+fi
 
 # is there a brain?
 tsession=$(tmux ls | cut -d ":" -f 1)

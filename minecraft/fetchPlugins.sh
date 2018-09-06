@@ -18,7 +18,8 @@ MVversion="2.6.0";	# Multiverse-* Version
 MV="1";
 MVPversion="2.5.2"; # Multiverse-Portals Version
 MVP="1";
-WEversion='6.1.9';	# WorldEdit Version
+WEversion='7.0.0';	# WorldEdit Version
+WEBuild='10379';    # Build NO. from url
 WE="1";
 WGversion='6.2.2';	# WorldGuard Version
 WG="1";
@@ -28,6 +29,7 @@ CHversion='3.3.2';	# CommandHelper Version
 CH="1";
 NoCheat='';		# NoCheatPlus
 NC="1";
+DY="1"          # Dynmap Auto-Downloader
 #
 #	Global prep
 #
@@ -76,7 +78,7 @@ fi
 if [ $WE -eq 1 ]
 then
 	echo "Grabbing WorldEdit/WorldGuard";
-    $myget http://builds.enginehub.org/job/worldedit/10010/download/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar
+    $myget http://builds.enginehub.org/job/worldedit/$WEBuild/download/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar
 	if [ -a $downloadpath/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar ]
 		then
 			$mymv $downloadpath/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar $pluginpath/WorldEdit.jar;
@@ -106,7 +108,7 @@ fi
 if [ $CB -eq 1 ]
 then
 	echo "Grabbing CommandBook"
-    $myget http://builds.enginehub.org/job/commandbook/9546/download/commandbook-$CBversion-SNAPSHOT.zip
+    $myget http://builds.enginehub.org/job/commandbook/10189/download/commandbook-$CBversion-SNAPSHOT.zip
 	if [ -a $downloadpath/commandbook-$CBversion-SNAPSHOT.zip ]
 	        then
 			unzip -q $downloadpath/commandbook-$CBversion-SNAPSHOT.zip -d $downloadpath;
@@ -124,7 +126,7 @@ fi
 if [ $CH -eq 1 ]
 then
 	echo "Grabbing CommandHelper"
-    $myget http://builds.enginehub.org/job/commandhelper/10028/download/commandhelper-$CHversion-SNAPSHOT.jar
+    $myget http://builds.enginehub.org/job/commandhelper/10314/download/commandhelper-$CHversion-SNAPSHOT.jar
 	if [ -a $downloadpath/commandhelper-$CHversion-SNAPSHOT.jar ]
 	        then
 	                $mymv $downloadpath/commandhelper-$CHversion-SNAPSHOT.jar $pluginpath/CommandHelper.jar;
@@ -148,6 +150,24 @@ then
         fi
 else
         echo "Skipping NoCheatPlus";
+fi
+#
+#   Dynmap  (http://dynmap.us/releases/)
+#
+if [ $DY -eq 1 ]
+then
+    echo "Grabbing Dynmap"
+    geturl=$(lynx -dump http://dynmap.us/releases/ | grep -i spigot | cut -d " " -f 3 | sed -e '$!d' );
+    $myget "$geturl"
+    Dynmap=`echo $geturl | cut -d "/" -f 5`
+    if [ -a $downloadpath/$Dynmap ]
+    then
+        $mymv $downloadpath/$Dynmap $pluginpath/dynmap.jar;
+    else
+        echo "Dynmap not downloaded, double check version number.  http://dynmap.us/releases/";
+    fi
+else
+    echo "Skipping Dynmap"
 fi
 #
 #	done
