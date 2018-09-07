@@ -16,7 +16,7 @@ echo "Setting up tmux env"
 if [ ! -L ~/.tmux.conf ]
 then
     mv ~/.tmux.conf ~/.tmux.conf.old
-    ln -s ~/Home-Scripts/dotr_files/tmux.conf ~/.tmux.conf
+    ln -s ~/Home-Scripts/dot_files/tmux.conf ~/.tmux.conf
     if [ -f ~/.tmux ]
     then
         mv ~/.tmux ~/.tmux.old
