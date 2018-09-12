@@ -163,6 +163,8 @@ then
     if [ -a $downloadpath/$Dynmap ]
     then
         $mymv $downloadpath/$Dynmap $pluginpath/dynmap.jar;
+        echo "$Dynmap installed"
+        echo "Double check for an updated version:  http://dynmap.us/releases/"
     else
         echo "Dynmap not downloaded, double check version number.  http://dynmap.us/releases/";
     fi
