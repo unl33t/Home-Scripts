@@ -33,7 +33,7 @@ alias sizeme="sudo df -h /"
 alias tree="tree -I @ea*"
 alias size=" du -h -d 1; df -h ."
 alias vi="vim"
-alias aptall="apt update ; apt -y upgrade ; apt -y autoremove"
+alias aptall="apt update ; apt upgrade -y; apt autoremove -y"
 
 if [ -x "$(command -v mtr)" ]; then
     alias ping="mtr"
