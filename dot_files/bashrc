@@ -8,19 +8,13 @@ export PATH
 if [ -x /usr/bin/dircolors  ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-
-
 #
 # e-travel
 #
-alias starwars='telnet towel.blinkenlights.nl'
 alias wtf='ssh g33k@wtfwasithinking.org'
 #
 # shortcuts
@@ -69,15 +63,8 @@ export EDITOR=vi
 
 if [ -f /opt/local/etc/bash_completion ]; then
         . /opt/local/etc/bash_completion
-    fi
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
 fi
-
-if [ -f /usr/bin/colortail ]; then
-    alias tail="colortail"
-fi
+[ -f /usr/local/homebrew/etc/bash_completion ] && . /usr/local/homebrew/etc/bash_completion
 
 PERL_MB_OPT="--install_base \"/Users/g33k/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/g33k/perl5"; export PERL_MM_OPT;
