@@ -64,7 +64,6 @@ export EDITOR=vi
 if [ -f /opt/local/etc/bash_completion ]; then
         . /opt/local/etc/bash_completion
 fi
-[ -f /usr/local/homebrew/etc/bash_completion ] && . /usr/local/homebrew/etc/bash_completion
 
 PERL_MB_OPT="--install_base \"/Users/g33k/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/g33k/perl5"; export PERL_MM_OPT;
