@@ -47,6 +47,15 @@ else
 fi
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 #
+#   Grab gotop (because it's darn pretty)
+#
+if [ ! -f /usr/local/bin/gotop ]; then
+    git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop
+    /tmp/gotop/scripts/download.sh
+    sudo mv gotop /usr/local/bin/gotop
+    rm -rf /tmp/gotop
+fi
+#
 #   Refresh Env (might require a logout)
 #
 source ~/.bashrc
