@@ -40,8 +40,9 @@ fi
 if
     [ -x "$(command -v ccat)" ]; then
     alias cat="ccat"
-else
-    echo "Consider installing ccat"
+fi
+if [ -x "$(command -v pygmentize)" ]; then
+    alias cat="pygmentize -g"
 fi
 
 # functions
