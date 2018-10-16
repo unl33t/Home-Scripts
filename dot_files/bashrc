@@ -37,6 +37,12 @@ if [ -x "$(command -v colortail)" ]; then
 else
     echo "Consider installing colortail"
 fi
+if
+    [ -x "$(command -v ccat)" ]; then
+    alias cat="ccat"
+else
+    echo "Consider installing ccat"
+fi
 
 # functions
 force_color_prompt=yes
