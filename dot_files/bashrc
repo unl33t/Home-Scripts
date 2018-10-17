@@ -21,6 +21,7 @@ alias wtf='ssh g33k@wtfwasithinking.org'
 #
 alias ..="cd .."
 alias check="~/Home-Scripts/random-scripts/check.sh"
+alias gitprep="~/Home-Scripts/random-scripts/gitprep.sh"
 alias mv="mv -v"
 alias sizeme="sudo df -h /"
 alias tree="tree -I @ea*"
