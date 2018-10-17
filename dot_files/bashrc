@@ -36,10 +36,10 @@ else
 fi
 function ping() {
     if [ -x "$(command -v mtr)" ]; then
-        mtr
+        sudo mtr
     fi
 }
-
+export -f ping
 # colortail?
 if [ -x "$(command -v colortail)"  ]; then
     echo "colortail ready"
@@ -51,25 +51,24 @@ function tail() {
         colortail
     fi
 }
-
+export -f tail
 # check for color options
-if [ -x "$(command -v ccat)"  ] || [ -x "$(command -v pygmentize)"  ]; then
+if [[ -x "$(command -v ccat)" || -x "$(command -v pygmentize)" ]]; then
     echo "cat coloring enabled"
 else
     echo "consider installing ccat or pygmentize"
 fi
 function cat() {
     if
-        [ -x "$(command -v ccat)" ]; then       # ccat?
-        ccat
-    else if
+        [ -x "$(command -v ccat)" ]; then 
+        ccat $1
+    elif
         [ -x "$(command -v pygmentize)" ]; then
-            pygmentize -g
-        fi
+        pygmentize $1 
     fi
 }
+export -f cat
 
-# functions
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
