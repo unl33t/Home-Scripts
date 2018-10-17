@@ -58,4 +58,8 @@ fi
 #
 #   Refresh Env (might require a logout)
 #
-source ~/.bashrc
+if [ -f ~/.bash_profile ]; then
+    . ~/.bash_profile
+else
+    . ~/.bashrc
+fi

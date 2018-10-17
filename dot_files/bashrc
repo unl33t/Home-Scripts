@@ -59,14 +59,13 @@ else
     echo "consider installing ccat or pygmentize"
 fi
 function cat() {
-    # is ccat
     if
-        [ -x "$(command -v ccat)" ]; then
+        [ -x "$(command -v ccat)" ]; then       # ccat?
         ccat
-    fi
-    # pygmentize
-    if [ -x "$(command -v pygmentize)" ]; then
-        pygmentize -g
+    else if
+        [ -x "$(command -v pygmentize)" ]; then
+            pygmentize -g
+        fi
     fi
 }
 
