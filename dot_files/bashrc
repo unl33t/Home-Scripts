@@ -19,31 +19,55 @@ alias wtf='ssh g33k@wtfwasithinking.org'
 #
 # shortcuts
 #
-alias moviesync="~/Home-Scripts/movie-scripts/moviesync.pl"
-alias check="~/Home-Scripts/check.sh"
-alias sc="screen -dr"
+alias ..="cd .."
+alias check="~/Home-Scripts/random-scripts/check.sh"
 alias mv="mv -v"
 alias sizeme="sudo df -h /"
 alias tree="tree -I @ea*"
 alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 alias aptall="apt update ; apt upgrade -y; apt autoremove -y"
-
-if [ -x "$(command -v mtr)" ]; then
-    alias ping="mtr"
-fi
-if [ -x "$(command -v colortail)" ]; then
-    alias tail="colortail"
+# mtr
+if [ -x "$(command -v mtr)"  ]; then
+    echo "mtr ready"
 else
-    echo "Consider installing colortail"
+    echo "consider installing mtr"
 fi
-if
-    [ -x "$(command -v ccat)" ]; then
-    alias cat="ccat"
+function ping() {
+    if [ -x "$(command -v mtr)" ]; then
+        mtr
+    fi
+}
+
+# colortail?
+if [ -x "$(command -v colortail)"  ]; then
+    echo "colortail ready"
+else
+    echo "consider installing colortail"
 fi
-if [ -x "$(command -v pygmentize)" ]; then
-    alias cat="pygmentize -g"
+function tail() {
+    if [ -x "$(command -v colortail)" ]; then
+        colortail
+    fi
+}
+
+# check for color options
+if [ -x "$(command -v ccat)"  ] || [ -x "$(command -v pygmentize)"  ]; then
+    echo "cat coloring enabled"
+else
+    echo "consider installing ccat or pygmentize"
 fi
+function cat() {
+    # is ccat
+    if
+        [ -x "$(command -v ccat)" ]; then
+        ccat
+    fi
+    # pygmentize
+    if [ -x "$(command -v pygmentize)" ]; then
+        pygmentize -g
+    fi
+}
 
 # functions
 force_color_prompt=yes
