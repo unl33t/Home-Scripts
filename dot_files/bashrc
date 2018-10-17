@@ -28,18 +28,7 @@ alias tree="tree -I @ea*"
 alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 alias aptall="apt update ; apt upgrade -y; apt autoremove -y"
-# mtr
-if [ -x "$(command -v mtr)"  ]; then
-    echo "mtr ready"
-else
-    echo "consider installing mtr"
-fi
-function ping() {
-    if [ -x "$(command -v mtr)" ]; then
-        sudo mtr
-    fi
-}
-export -f ping
+
 # colortail?
 if [ -x "$(command -v colortail)"  ]; then
     echo "colortail ready"
