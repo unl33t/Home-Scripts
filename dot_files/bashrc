@@ -1,6 +1,6 @@
 # .bashrc
 
-PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/sw/bin:/opt/local/bin:/opt/local/sbin:/snap/bin:"
+PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/sw/bin:/opt/local/bin:/opt/local/sbin:/snap/bin:$PATH"
 
 export PATH
 
