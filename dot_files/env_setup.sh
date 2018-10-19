@@ -59,9 +59,9 @@ fi
 #   Refresh Env (might require a logout)
 #
 if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
+    source ~/.bash_profile
 elif [ -f ~/.profile ]; then
-    . ~/.profile
+    source ~/.profile
 else
-    . ~/.bashrc
+    source ~/.bashrc
 fi
