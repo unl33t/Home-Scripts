@@ -26,7 +26,7 @@ alias sizeme="sudo df -h /"
 alias tree="tree -I @ea*"
 alias size=" du -h -d 1; df -h ."
 alias vi="vim"
-alias aptall="apt update ; apt upgrade -y; apt autoremove -y"
+alias aptall="apt update ; apt upgrade; apt autoremove -y"
 
 # colortail?
 if [ -x "$(command -v colortail)"  ]; then
@@ -42,11 +42,11 @@ function tail() {
 export -f tail
 # check for color options
 if [[ -x "$(command -v ccat)" || -x "$(command -v pygmentize)" ]]; then
-    echo "cat coloring enabled"
+    echo "ccat ready"
 else
     echo "consider installing ccat or pygmentize"
 fi
-function cat() {
+function ccat() {
     if
         [ -x "$(command -v ccat)" ]; then 
         ccat $1
@@ -55,7 +55,7 @@ function cat() {
         pygmentize $1 
     fi
 }
-export -f cat
+export -f ccat
 
 force_color_prompt=yes
 
