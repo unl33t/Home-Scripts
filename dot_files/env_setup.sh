@@ -60,6 +60,8 @@ fi
 #
 if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile
+elif [ -f ~/.profile ]; then
+    . ~/.profile
 else
     . ~/.bashrc
 fi
