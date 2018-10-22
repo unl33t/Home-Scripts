@@ -36,7 +36,7 @@ else
 fi
 function tail() {
     if [ -x "$(command -v colortail)" ]; then
-        colortail
+        alias tail="colortail"
     fi
 }
 export -f tail
@@ -48,11 +48,8 @@ else
 fi
 function ccat() {
     if
-        [ -x "$(command -v ccat)" ]; then 
-        ccat $1
-    elif
         [ -x "$(command -v pygmentize)" ]; then
-        pygmentize $1 
+        alias ccat="pygmentize" 
     fi
 }
 export -f ccat
