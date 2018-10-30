@@ -1,6 +1,6 @@
 # .bashrc
 
-PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/sw/bin:/opt/local/bin:/opt/local/sbin:/snap/bin:$PATH"
+PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/snap/bin:$PATH"
 export PATH
 
 # enable color support of ls and also add handy aliases
@@ -28,6 +28,7 @@ alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 alias aptall="apt update ; apt upgrade; apt autoremove -y"
 
+
 # colortail?
 if [ -x "$(command -v colortail)"  ]; then
     echo "colortail ready"
@@ -40,6 +41,8 @@ function tail() {
     fi
 }
 export -f tail
+
+
 # check for color options
 if [[ -x "$(command -v ccat)" || -x "$(command -v pygmentize)" ]]; then
     echo "ccat ready"
