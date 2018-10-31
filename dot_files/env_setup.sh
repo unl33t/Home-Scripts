@@ -85,14 +85,24 @@ fi
 #
 if [ ! -x "$(command -v ccat)" ]; then
     echo "Installing ccat"
-    if [ -x $system = "MacOS" ]; then
-        $InsCmd ccat
-    fi
-    if [ $system == "Ubuntu" ]; then
-        $InsCmd golang-go
-        go get -u github.com/jingweno/ccat
-        $mycp ~/go/bin/ccat /usr/local/bin/ccat
-    fi
+    case $system in
+        MacOS)
+            $InsCmd ccat
+            ;;
+        Ubuntu)
+            $InsCmd golang-go
+            go get -u github.com/jingweno/ccat
+            $mycp ~/go/bin/ccat /usr/local/bin/ccat
+            ;;
+    esac
+#    if [ -x $system = "MacOS" ]; then
+#        $InsCmd ccat
+#    fi
+#    if [ $system = "Ubuntu" ]; then
+#        $InsCmd golang-go
+#        go get -u github.com/jingweno/ccat
+#        $mycp ~/go/bin/ccat /usr/local/bin/ccat
+#    fi
 else
     echo "ccat installed"
 fi
