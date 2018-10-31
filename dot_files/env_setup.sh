@@ -2,24 +2,29 @@
 #
 #   Getting system info
 #
-if [ "$(uname -a)" = "*Ubuntu*" ]; then
-    system="Ubuntu"
-    if [ "$(whoami)" = "*root*" ]; then
+systype=$(uname -a);
+mycp="cp"
+case $systype in
+    *Ubuntu*)
+        system="Ubuntu"
         InsCmd="apt install"
-        mycp="cp"
-    else
-        InsCmd="sudo apt install"
-        mycp="sudo cp"
-    fi
-fi
-if [ "$(uname -a)" = "*Darwin*" ]; then
-    system="MacOS"
-    if [ -x "$(command -v brew)" ]; then
-        InsCmd="brew install"
-    else
-        echo "Install Homebrew first (https://brew.sh/)"
-        exit
-    fi
+        ;;
+    *Darwin*)
+        system="MacOS"
+        if [ -x "$(command -v brew)"  ]; then
+            InsCmd="brew install"
+        else
+            echo "Install Homebrew first (https://brew.sh/)"
+            exit
+        fi
+        ;;
+    *)
+        echo "I don't know what OS this is, so I won't install anything."
+        ;;
+esac
+if [ "$(whoami)" != "root"   ]; then
+    mycp="sudo cp"
+    InsCmd="sudo "InsCmd
 fi
 #
 #   General Announcements
