@@ -28,7 +28,7 @@ case $systype in
 esac
 if [ "$(whoami)" != "root"   ]; then
     mycp="sudo cp"
-    InsCmd="sudo "InsCmd
+    InsCmd="sudo "$InsCmd
 fi
 #
 #   General Announcements
