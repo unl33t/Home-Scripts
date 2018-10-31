@@ -85,6 +85,7 @@ fi
 #
 if [ ! -x "$(command -v ccat)" ]; then
     echo "Installing ccat"
+    echo "Using $InsCmd"
     case $system in
         MacOS)
             $InsCmd ccat
@@ -95,6 +96,7 @@ if [ ! -x "$(command -v ccat)" ]; then
             $mycp ~/go/bin/ccat /usr/local/bin/ccat
             ;;
     esac
+    echo "ccat installed"
 #    if [ -x $system = "MacOS" ]; then
 #        $InsCmd ccat
 #    fi
