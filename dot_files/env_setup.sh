@@ -77,7 +77,7 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 if [ ! -f /usr/local/bin/gotop ]; then
     git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop
     /tmp/gotop/scripts/download.sh
-    sudo mv gotop /usr/local/bin/gotop
+    $mycp /tmp/gotop /usr/local/bin/gotop
     rm -rf /tmp/gotop
 fi
 #
@@ -85,7 +85,7 @@ fi
 #
 if [ ! -x "$(command -v ccat)" ]; then
     echo "Installing ccat"
-    if [ -x "$(command -v brew)" ]; then
+    if [ -x $system = "MacOS" ]; then
         $InsCmd ccat
     fi
     if [[ -x "$(command -v apt)" && $system == "Ubuntu" ]]; then
