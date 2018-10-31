@@ -56,6 +56,21 @@ if [ ! -f /usr/local/bin/gotop ]; then
     rm -rf /tmp/gotop
 fi
 #
+#   Installing ccat
+#
+if [ ! -x "$(command -v ccat)" ]; then
+    echo "Installing ccat"
+    if [ -x "$(command -v apt)" ]; then
+        sudo apt install golang-go
+        go get -u github.com/jingweno/ccat
+        sudo cp ~/go/bin/ccat /usr/local/bin/ccat
+    elif [ -x "$(command -v brew)" ]; then
+        brew install ccat
+    fi
+else
+    echo "ccat installed"
+fi
+#
 #   Refresh Env (might require a logout)
 #
 if [ -f ~/.profile ]; then
