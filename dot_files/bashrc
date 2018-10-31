@@ -31,31 +31,17 @@ alias aptall="apt update ; apt upgrade; apt autoremove -y"
 
 # colortail?
 if [ -x "$(command -v colortail)"  ]; then
-    echo "colortail ready"
+    echo "colortail installed"
 else
     echo "consider installing colortail"
 fi
-function tail() {
-    if [ -x "$(command -v colortail)" ]; then
-        alias tail="colortail"
-    fi
-}
-export -f tail
-
 
 # check for color options
-if [[ -x "$(command -v ccat)" || -x "$(command -v pygmentize)" ]]; then
-    echo "ccat ready"
+if [ -x "$(command -v ccat)" ]; then
+    echo "ccat installed"
 else
-    echo "consider installing ccat or pygmentize"
+    echo "consider installing ccat"
 fi
-function ccat() {
-    if
-        [ -x "$(command -v pygmentize)" ]; then
-        alias ccat="pygmentize" 
-    fi
-}
-export -f ccat
 
 force_color_prompt=yes
 
