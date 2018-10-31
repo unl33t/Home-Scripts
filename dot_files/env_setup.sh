@@ -6,8 +6,10 @@ if [ "$(uname -a)" = "*Ubuntu*" ]; then
     system="Ubuntu"
     if [ "$(whoami)" = "*root*" ]; then
         InsCmd="apt install"
+        mycp="cp"
     else
         InsCmd="sudo apt install"
+        mycp="sudo cp"
     fi
 fi
 if [ "$(uname -a)" = "*Darwin*" ]; then
@@ -89,7 +91,7 @@ if [ ! -x "$(command -v ccat)" ]; then
     if [[ -x "$(command -v apt)" && $system == "Ubuntu" ]]; then
         $InsCmd golang-go
         go get -u github.com/jingweno/ccat
-        sudo cp ~/go/bin/ccat /usr/local/bin/ccat
+        $mycp ~/go/bin/ccat /usr/local/bin/ccat
     fi
 else
     echo "ccat installed"
