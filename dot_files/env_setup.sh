@@ -18,6 +18,10 @@ case $systype in
             exit
         fi
         ;;
+    *Microsoft*)
+        system="Ubuntu"
+        InsCmd="apt install"
+        ;;
     *)
         echo "I don't know what OS this is, so I won't install anything."
         ;;
