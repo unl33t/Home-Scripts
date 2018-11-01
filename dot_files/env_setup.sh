@@ -1,5 +1,20 @@
 #!/bin/bash
 #
+#   Functions
+#
+function make_it_live(){
+    #
+    #   Refresh Env (might require a logout)
+    #
+    if [ -f ~/.profile ]; then
+        source ~/.profile
+    elif [ -f ~/.bash_profile ]; then
+        source ~/.bash_profile
+    else
+        source ~/.bashrc
+    fi
+}
+#
 #   Getting system info
 #
 systype=$(uname -a);
@@ -11,6 +26,14 @@ case $systype in
         if [ "$(whoami)" != "root"   ]; then
             InsCmd="sudo "$InsCmd
             mycp="sudo cp"
+        fi
+        ;;
+    *Microsoft*)
+        system="Ubuntu"
+        InsCmd="apt install"
+        if [ "$(whoami)" != "root"   ]; then
+             InsCmd="sudo "$InsCmd
+             mycp="sudo cp"
         fi
         ;;
     *Darwin*)
@@ -25,14 +48,6 @@ case $systype in
              mycp="sudo cp"
          fi
         ;;
-    *Microsoft*)
-        system="Ubuntu"
-        InsCmd="apt install"
-        if [ "$(whoami)" != "root"   ]; then
-             InsCmd="sudo "$InsCmd
-             mycp="sudo cp"
-        fi
-        ;;
     *)
         echo "I don't know what OS this is, so I won't install anything."
         ;;
@@ -45,11 +60,11 @@ echo "Settin up your $system environment"
 #   Setting up bashrc
 #
 echo "Backing up old .bashrc and linking new"
-if [ ! -L ~/.bashrc ]
-then
+if [ ! -L ~/.bashrc ];then
     mv ~/.bashrc ~/.bashrc.old
     ln -s ~/Home-Scripts/dot_files/bashrc ~/.bashrc
 fi
+make_it_live
 #
 #   Setting up tmux env
 #
@@ -99,7 +114,9 @@ fi
 #
 #   Installing ccat
 #
-if [ ! -x "$(command -v ccat)" ]; then
+if [[ -x "$(command -v ccat)" || -f /usr/local/bin/ccat ]]; then
+    echo "ccat installed"
+else
     echo "Installing ccat"
     case $system in
         MacOS)
@@ -111,25 +128,11 @@ if [ ! -x "$(command -v ccat)" ]; then
             $mycp ~/go/bin/ccat /usr/local/bin/ccat
             ;;
     esac
-    echo "ccat installed"
-#    if [ -x $system = "MacOS" ]; then
-#        $InsCmd ccat
-#    fi
-#    if [ $system = "Ubuntu" ]; then
-#        $InsCmd golang-go
-#        go get -u github.com/jingweno/ccat
-#        $mycp ~/go/bin/ccat /usr/local/bin/ccat
-#    fi
-else
-    echo "ccat installed"
 fi
 #
-#   Refresh Env (might require a logout)
+#   Almost there
 #
-if [ -f ~/.profile ]; then
-    source ~/.profile
-elif [ -f ~/.bash_profile ]; then
-    source ~/.bash_profile
-else
-    source ~/.bashrc
-fi
+make_it_live
+#
+#   All done
+#
