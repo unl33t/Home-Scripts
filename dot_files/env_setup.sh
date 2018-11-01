@@ -18,7 +18,7 @@ function make_it_live(){
 #   Getting system info
 #
 systype=$(uname -a);
-mycp="cp"
+mycp="cp -v"
 case $systype in
     *Ubuntu*)
         system="Ubuntu"
@@ -85,7 +85,7 @@ then
 else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-echo "Run 'Ctrl-B Shft-I' from withing tmux to enable plugins"
+echo "Run 'Ctrl-B Shft-I' from withing tmux to enable plugins (or just restart your tmux session)"
 #
 #   Setting up vimrc
 #
@@ -105,8 +105,11 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 #
 #   Grab gotop (because it's darn pretty)
 #
-if [ ! -f /usr/local/bin/gotop ]; then
-    git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop
+echo "Installing gotop"
+if [ -f /usr/local/bin/gotop ]; then
+    echo "gotop installed"
+else
+    "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
     /tmp/gotop/scripts/download.sh
     $mycp gotop /usr/local/bin/gotop
     rm -rf /tmp/gotop gotop
@@ -128,6 +131,15 @@ else
             $mycp ~/go/bin/ccat /usr/local/bin/ccat
             ;;
     esac
+fi
+#
+#   Installing colortail
+#
+if [ -x "$(command -v colortail)"  ]; then
+    echo "colortail installed"
+else
+    echo "Installing colortail"
+    $InsCmd colortail
 fi
 #
 #   Almost there
