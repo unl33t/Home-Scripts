@@ -4,7 +4,9 @@ PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/snap/bin:$PA
 export PATH
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors  ]; then
+export CLICOLOR=YES
+if [ $CLICOLOR = "YES" ]; then
+#if [ -x /usr/bin/dircolors  ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
