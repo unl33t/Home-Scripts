@@ -8,6 +8,10 @@ case $systype in
     *Ubuntu*)
         system="Ubuntu"
         InsCmd="apt install"
+        if [ "$(whoami)" != "root"   ]; then
+            InsCmd="sudo "$InsCmd
+            mycp="sudo cp"
+        fi
         ;;
     *Darwin*)
         system="MacOS"
@@ -17,19 +21,22 @@ case $systype in
             echo "Install Homebrew first (https://brew.sh/)"
             exit
         fi
+        if [ "$(whoami)" != "root"   ]; then
+             mycp="sudo cp"
+         fi
         ;;
     *Microsoft*)
         system="Ubuntu"
         InsCmd="apt install"
+        if [ "$(whoami)" != "root"   ]; then
+             InsCmd="sudo "$InsCmd
+             mycp="sudo cp"
+        fi
         ;;
     *)
         echo "I don't know what OS this is, so I won't install anything."
         ;;
 esac
-if [ "$(whoami)" != "root"   ]; then
-    mycp="sudo cp"
-    InsCmd="sudo "$InsCmd
-fi
 #
 #   General Announcements
 #
@@ -94,7 +101,6 @@ fi
 #
 if [ ! -x "$(command -v ccat)" ]; then
     echo "Installing ccat"
-    echo "Using $InsCmd"
     case $system in
         MacOS)
             $InsCmd ccat
