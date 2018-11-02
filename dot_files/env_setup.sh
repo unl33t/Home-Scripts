@@ -45,6 +45,8 @@ case $systype in
             exit
         fi
         if [ "$(whoami)" != "root"   ]; then
+            echo "We do NOT do brew installs as root!"
+            InsCmd="We would have installed this were you not root: "
              mycp="sudo cp"
          fi
         ;;
@@ -109,7 +111,8 @@ echo "Installing gotop"
 if [ -f /usr/local/bin/gotop ]; then
     echo "gotop installed"
 else
-    "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
+    get_gotop="git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
+    eval $get_gotop
     /tmp/gotop/scripts/download.sh
     $mycp gotop /usr/local/bin/gotop
     rm -rf /tmp/gotop gotop
