@@ -78,10 +78,10 @@ if [ -x "$(command -v zsh)" ];then
         elif [ -x "$(command -v wget)" ];then
             sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
         fi
-        if [ ! -L ~/.zshrc ];then
-            mv ~/.zshrc ~/.zshrc.bak
-            ln -s ~/Home-Scripts/dot_files/zshrc ~/.zshrc
-        fi
+    fi
+    if [ ! -L ~/.zshrc ];then
+        mv ~/.zshrc ~/.zshrc.bak
+        ln -s ~/Home-Scripts/dot_files/zshrc ~/.zshrc
     fi
 fi
 #
