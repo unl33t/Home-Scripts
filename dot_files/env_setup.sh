@@ -6,12 +6,14 @@ function make_it_live(){
     #
     #   Refresh Env (might require a logout)
     #
-    if [ -f ~/.profile ]; then
-        source ~/.profile
-    elif [ -f ~/.bash_profile ]; then
-        source ~/.bash_profile
-    else
-        source ~/.bashrc
+    if [ $SHELL = "*bash*" ];then
+        if [ -f ~/.profile ]; then
+            source ~/.profile
+        elif [ -f ~/.bash_profile ]; then
+            source ~/.bash_profile
+        else
+            source ~/.bashrc
+        fi
     fi
 }
 #
@@ -66,6 +68,23 @@ if [ ! -L ~/.bashrc ];then
 fi
 make_it_live
 #
+#   Setting up zsh
+#
+if [ -x "$(command -v zsh)" ];then
+    if [ ! -d ~/.oh-my-zsh ];then
+        echo "Setting up oh-my-zsh"
+        if [ -x "$(command -v curl)" ];then
+            sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        elif [ -x "$(command -v wget)" ];then
+            sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+        fi
+        if [ ! -L ~/.zshrc ];then
+            mv ~/.zshrc ~/.zshrc.bak
+            ln -s ~/Home-Scripts/dot_files/zshrc ~/.zshrc
+        fi
+    fi
+fi
+#
 #   Setting up tmux env
 #
 echo "Setting up tmux env"
@@ -109,7 +128,7 @@ echo "Installing gotop"
 if [ -f /usr/local/bin/gotop ]; then
     echo "gotop installed"
 else
-    "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
+    eval "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
     /tmp/gotop/scripts/download.sh
     $mycp gotop /usr/local/bin/gotop
     rm -rf /tmp/gotop gotop
@@ -126,7 +145,7 @@ else
             $InsCmd ccat
             ;;
         Ubuntu)
-            $InsCmd golang-go
+            $InsCmd -y golang-go
             go get -u github.com/jingweno/ccat
             $mycp ~/go/bin/ccat /usr/local/bin/ccat
             ;;
