@@ -120,3 +120,7 @@ else
     unalias ccat
     alias cat="/usr/local/bin/ccat"
 fi
+
+# Exports
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
