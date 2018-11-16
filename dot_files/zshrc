@@ -113,4 +113,10 @@ alias sizeme="sudo df -h /"
 alias tree="tree -I \"@ea*\""
 alias size=" du -h -d 1; df -h ."
 alias aptall="apt update ; apt upgrade; apt autoremove -y"
-alias cat="/usr/local/bin/ccat"
+if [[ $PATH =~ *homebrew* ]]; then
+    unalias ccat
+    alias cat="/usr/local/homebrew/bin/ccat"
+else
+    unalias ccat
+    alias cat="/usr/local/bin/ccat"
+fi
