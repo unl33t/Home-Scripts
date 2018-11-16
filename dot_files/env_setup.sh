@@ -78,6 +78,7 @@ if [ -x "$(command -v zsh)" ];then
         elif [ -x "$(command -v wget)" ];then
             sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
         fi
+        echo "oh-my-zsh set up"
     fi
     if [ ! -L ~/.zshrc ];then
         mv ~/.zshrc ~/.zshrc.bak
