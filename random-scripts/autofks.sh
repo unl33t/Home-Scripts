@@ -40,7 +40,7 @@ else
 
         drop=$RANDOM
         let "drop %= maxfucks"
-        if [ fucks == drop ]
+        if [ $fucks == $drop ]
         then
             echo "Dropped a fuck, don't care."
             rt="0"
