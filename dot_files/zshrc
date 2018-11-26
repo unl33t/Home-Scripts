@@ -69,7 +69,6 @@ plugins=(
   git
   git-auto-fetch
   brew
-  catimg
   colored-man-pages
   colorize
   copyfile
