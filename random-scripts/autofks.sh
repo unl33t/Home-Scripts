@@ -33,7 +33,7 @@ elif [ $fucks -lt 0 ] ; then
     echo -e "Whoa, a negagive amount of fucks!  RUN!\n"
 else
     while [ $fucks -gt 0 ] ; do
-        if [ ! -z "$rt" ]
+        if [[ $rt != 0 ]]
         then
             echo -e "  (that Fuck lasted $rt seconds!)\n"
         fi
@@ -42,7 +42,7 @@ else
         let "drop %= maxfucks"
         if [ $fucks == $drop ]
         then
-            echo "Dropped a fuck, don't care."
+            echo -e "Dropped a fuck, don't care.\n"
             rt="0"
         else
             rt=$RANDOM
