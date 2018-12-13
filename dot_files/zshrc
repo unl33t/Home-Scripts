@@ -148,3 +148,4 @@ extract () {
 # Exports
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
