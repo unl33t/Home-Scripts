@@ -114,8 +114,8 @@ alias check="~/Home-Scripts/random-scripts/check.sh"
 alias gitprep="~/Home-Scripts/random-scripts/gitprep.sh"
 alias mv="mv -v"
 alias sizeme="sudo df -h /"
-alias tree="tree -I \"@ea*\""
 alias size=" du -h -d 1; df -h ."
+alias tree="tree -I \"@ea*\""
 alias aptall="apt update ; apt upgrade; apt autoremove -y"
 if [[ $PATH == *"homebrew"* ]]; then
     unalias ccat
