@@ -43,7 +43,7 @@ if [ "$CurrIP" == "$CacheIP" ]
 				wget "$i" -o /dev/null -O /dev/stdout
 				#echo "Updating would be happeneing here"
 		done
-		#echo "$CurrIP	`date`" >> dnsactual.log
+		echo "$CurrIP	`date`" >> dnsactual.log
 fi
 echo $CurrIP > dnsactual.last
 sleep 1
