@@ -19,17 +19,19 @@ MV="1";
 MVPversion="2.5.2"; # Multiverse-Portals Version
 MVP="1";
 WEversion='7.0.0';	# WorldEdit Version
-WEBuild='10379';    # Build NO. from url
+WEBuild='10664';    # Build NO. from url
 WE="1";
-WGversion='6.2.2';	# WorldGuard Version
+WGversion='7.0.0';	# WorldGuard Version
+WGBuild='10676';    # Build NO. from url
 WG="1";
 CBversion='2.5';	# CommandBook Version
-CB="1";
+CB="0";
 CHversion='3.3.2';	# CommandHelper Version
-CH="1";
+CH="0";
 NoCheat='';		# NoCheatPlus
-NC="1";
+NC="0";
 DY="1"          # Dynmap Auto-Downloader
+DYWG="1"        # Dynmap-WorldGuard Auto-Downloader
 #
 #	Global prep
 #
@@ -77,7 +79,7 @@ fi
 #
 if [ $WE -eq 1 ]
 then
-	echo "Grabbing WorldEdit/WorldGuard";
+	echo "Grabbing WorldEdit";
     $myget http://builds.enginehub.org/job/worldedit/$WEBuild/download/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar
 	if [ -a $downloadpath/worldedit-bukkit-$WEversion-SNAPSHOT-dist.jar ]
 		then
@@ -91,7 +93,8 @@ else
 fi
 if [ $WG -eq 1 ]
 then
-    $myget http://builds.enginehub.org/job/worldguard/9934/download/worldguard-legacy-$WGversion-SNAPSHOT-dist.jar
+    echo "Grabbing WorldGuard"
+    $myget http://builds.enginehub.org/job/worldguard/$WGBuild/download/worldguard-legacy-$WGversion-SNAPSHOT-dist.jar
 	if [ -a $downloadpath/worldguard-legacy-$WGversion-SNAPSHOT-dist.jar ]
 		then
 			$mymv $downloadpath/worldguard-legacy-$WGversion-SNAPSHOT-dist.jar $pluginpath/WorldGuard.jar;
@@ -171,6 +174,30 @@ then
 else
     echo "Skipping Dynmap"
 fi
+#
+#   Dynmap-WorldGuard (http://dynmap.us/builds/Dynmap-WorldGuard/)
+#
+if [ $DYWG -eq 1 ]
+then
+    echo "Grabbing Dynmap-WorldGuard"
+    geturl=$(lynx -dump http://dynmap.us/builds/Dynmap-WorldGuard/ | grep -v HEAD | cut -d " " -f 4 | sed -e '$!d')
+    $myget "$geturl"
+    DyWg=`echo $geturl | cut -d "/" -f 6`
+    if [ -a $downloadpath/$DyWg ]
+    then
+        $mymv $downloadpath/$DyWg $pluginpath/Dynmap-WorldGuard.jar
+        echo "$DyWg installed"
+        echo "Double check for an updated version:  http://dynmap.us/builds/Dynmap-WorldGuard/"
+    else
+        echo "Dynmap-WorldGuard not downloaded, double check version number.  http://dynmap.us/builds/Dynmap-WorldGuard/"
+    fi
+else
+    echo "Skipping Dynmap-WorldGuard"
+fi
+#
+#   Cleanup
+#
+chmod +x $pluginpath/*.jar
 #
 #	done
 #
