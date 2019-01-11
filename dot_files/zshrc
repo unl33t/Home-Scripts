@@ -68,7 +68,6 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   git
   git-auto-fetch
-  brew
   colored-man-pages
   colorize
   copyfile
