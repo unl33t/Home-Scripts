@@ -14,9 +14,9 @@ fi
 downloadpath="/home/g33k/minecraft/prod/plugins/pending";
 pluginpath="/home/g33k/minecraft/prod/plugins";
 # Plugins
-MVversion="2.6.0";	# Multiverse-* Version
+MVversion="3.0.0-SNAPSHOT";	# Multiverse-* Version
 MV="1";
-MVPversion="2.5.2"; # Multiverse-Portals Version
+MVPversion="3.0.0-SNAPSHOT"; # Multiverse-Portals Version
 MVP="1";
 WEversion='7.0.0';	# WorldEdit Version
 WEBuild='10819';    # Build NO. from url
@@ -37,23 +37,19 @@ DYWG="1"        # Dynmap-WorldGuard Auto-Downloader
 #
 cd $downloadpath;
 #
-#	Multiverse-*
+#	Multiverse-Core
 #
 if [ $MV -eq 1 ]
 then
-	echo "Grabbing Multiverse parts";
-	for i in Core
-		# possible packages: Portals Inventories Adventure
-	do
-		$myget http://ci.onarandombox.com/job/Multiverse-$i/lastSuccessfulBuild/artifact/target/Multiverse-$i-$MVversion.jar --no-check-certificate
-		if [ -a $downloadpath/Multiverse-$i-$MVversion.jar ]
+	echo "Grabbing Multiverse Core";
+		$myget http://ci.onarandombox.com/job/Multiverse-Core/lastSuccessfulBuild/artifact/target/Multiverse-Core-$MVversion.jar --no-check-certificate
+		if [ -a $downloadpath/Multiverse-Core-$MVversion.jar ]
 			then
-				$mymv $downloadpath/Multiverse-$i-$MVversion.jar $pluginpath/Multiverse-$i.jar
+				$mymv $downloadpath/Multiverse-Core-$MVversion.jar $pluginpath/Multiverse-Core.jar
 			else
 				#rm $downloadpath/Multiverse-$i-$MVversion.jar
-				echo "Multiverse-$i not downloaded, double check version number. http://ci.onarandombox.com/job/Multiverse-$i";
+				echo "Multiverse-Core not downloaded, double check version number. http://ci.onarandombox.com/job/Multiverse-Core";
 		fi
-	done
 else
 	echo "Skipping Multiverse"
 fi
@@ -63,10 +59,10 @@ fi
 if [ $MVP -eq 1 ]
     then
         echo "Grabbing Multiverse-Portals";
-        $myget https://ci.onarandombox.com/job/Multiverse-Portals/lastSuccessfulBuild/artifact/target/Multiverse-Portals-$MVPversion-SNAPSHOT.jar --no-check-certificate
-        if [ -a $downloadpath/Multiverse-Portals-$MVPversion-SNAPSHOT.jar ]
+        $myget https://ci.onarandombox.com/job/Multiverse-Portals/lastSuccessfulBuild/artifact/target/Multiverse-Portals-$MVPversion.jar --no-check-certificate
+        if [ -a $downloadpath/Multiverse-Portals-$MVPversion.jar ]
             then
-                $mymv $downloadpath/Multiverse-Portals-$MVPversion-SNAPSHOT.jar $pluginpath/Multiverse-Portals.jar
+                $mymv $downloadpath/Multiverse-Portals-$MVPversion.jar $pluginpath/Multiverse-Portals.jar
             else
             #rm $downloadpath/Multiverse-$i-$MVversion.jar
                 echo "Multiverse-Portals not downloaded, double check version number. http://ci.onarandombox.com/job/Multiverse-Portals";
