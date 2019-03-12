@@ -26,7 +26,7 @@ function make_it_live(){
         fi
         if [ -e ~/.zshrc ];then
             source ~/.zshrc
-        fi    
+        fi
     fi
 }
 #
