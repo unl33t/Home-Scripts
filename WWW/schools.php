@@ -31,6 +31,14 @@
         }
       }
       echo "</ul>";
+      echo "<br>Niskayuna Schools:<br>";
+      echo "<ul>";
+      foreach ( $newlist as $school ) {
+        if (preg_match('/Niskayuna/',$school) ) {
+          echo "<li".$school;
+        }
+      }
+      echo "</ul>";
       echo "<br>RPI Schools:<br>";
       echo "<ul>";
       foreach ( $newlist as $school ) {
