@@ -13,7 +13,7 @@ function make_it_live(){
         if [ -e ~/.bash_profile ]; then
             source ~/.bash_profile
         fi
-        if [ -e ~/.bashrc ]:then
+        if [ -e ~/.bashrc ];then
             source ~/.bashrc
         fi
     fi
@@ -24,7 +24,7 @@ function make_it_live(){
         if [ -e ~/.zsh_profile ]; then
             source ~/.zsh_profile
         fi
-        if [ -e ~/.zshrc ]:then
+        if [ -e ~/.zshrc ];then
             source ~/.zshrc
         fi    
     fi
@@ -113,6 +113,7 @@ then
 fi
 if [ -d ~/.tmux/plugins/tpm ]
 then
+    echo "Updating Tmux Plugin Manager"
     cd ~/.tmux/plugins/tpm
     git pull
 else
@@ -122,16 +123,17 @@ echo "Run 'Ctrl-B Shft-I' from withing tmux to enable plugins (or just restart y
 #
 #   Setting up vimrc
 #
-echo "Setting up awesome vimrc"
 if [ -f ~/.vimrc ]
 then
     mv ~/.vimrc ~/.vimrc.old
 fi
 if [ -d ~/.vim_runtime ]
 then
+    echo "Updating Awesome VIMrc"
     cd ~/.vim_runtime
     git pull
 else
+    echo "Setting up awesome vimrc"
     git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 fi
 sh ~/.vim_runtime/install_awesome_vimrc.sh
