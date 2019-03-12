@@ -18,6 +18,8 @@ MVversion="3.0.0-SNAPSHOT";	# Multiverse-* Version
 MV="1";
 MVPversion="3.0.0-SNAPSHOT"; # Multiverse-Portals Version
 MVP="1";
+MVIversion="3.0.0-SNAPSHOT"; # Multiverse-Invantories Version
+MVI="1";
 WEversion='7.0.0';	# WorldEdit Version
 WEBuild='10819';    # Build NO. from url
 WE="1";
@@ -70,6 +72,23 @@ if [ $MVP -eq 1 ]
     else
         echo "Skipping Multiverse-Portals"
 fi
+#
+#   Multiverse-Invantories
+#
+ if [ $MVP -eq 1 ]
+     then
+         echo "Grabbing Multiverse-Inventories";
+         $myget https://ci.onarandombox.com/job/Multiverse-Inventories/lastSuccessfulBuild/artifact/target/Multiverse-Inventories-$MVIversion.jar --no-check-certificate
+         if [ -a $downloadpath/Multiverse-Inventories-$MVIversion.jar ]
+             then
+                 $mymv $downloadpath/Multiverse-Inventories-$MVIversion.jar $pluginpath/Multiverse-Inventories.jar
+             else
+             #rm $downloadpath/Multiverse-$i-$MVversion.jar
+                 echo "Multiverse-Inventories not downloaded, double check version number. http://ci.onarandombox.com/job/Multiverse-Inventories";
+         fi
+     else
+         echo "Skipping Multiverse-Inventories"
+ fi
 #
 #	WorldEdit/WorldGuard
 #
