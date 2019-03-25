@@ -20,7 +20,7 @@ ZSH_THEME=random
 <<<<<<< HEAD
 ZSH_THEME_RANDOM_CANDIDATES=( "gnzh" "xiong-chiamiov-plus" "avit" "bureau" "funky" "ys" )
 =======
-ZSH_THEME_RANDOM_CANDIDATES=( "gnzh" "aussiegeek" "xiong-chiamiov-plus" "bureau" "funky" "ys" )
+ZSH_THEME_RANDOM_CANDIDATES=( "gnzh" "xiong-chiamiov-plus" "bureau" "funky" "ys" )
 >>>>>>> dba859f6863b14eb8e8232b0980bbb8e99302378
 
 # Uncomment the following line to use case-sensitive completion.
