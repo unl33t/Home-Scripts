@@ -17,7 +17,11 @@ ZSH_THEME=random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
+<<<<<<< HEAD
 ZSH_THEME_RANDOM_CANDIDATES=( "gnzh" "xiong-chiamiov-plus" "avit" "bureau" "funky" "ys" )
+=======
+ZSH_THEME_RANDOM_CANDIDATES=( "gnzh" "aussiegeek" "xiong-chiamiov-plus" "bureau" "funky" "ys" )
+>>>>>>> dba859f6863b14eb8e8232b0980bbb8e99302378
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,7 +71,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  git-auto-fetch
   colored-man-pages
   colorize
   copyfile
