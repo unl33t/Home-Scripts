@@ -6,6 +6,7 @@ function make_it_live(){
     #
     #   Refresh Env (might require a logout)
     #
+    echo "Refreshing Environment"
     if [ $SHELL = "*bash*" ];then
         if [ -e ~/.profile ]; then
             source ~/.profile
