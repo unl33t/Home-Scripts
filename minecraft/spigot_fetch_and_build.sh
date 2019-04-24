@@ -31,7 +31,6 @@ then
     mv -v craftbukkit-*.jar ~/minecraft/prod/craftbukkit.jar
     mv -v spigot-*.jar ~/minecraft/prod/spigot.jar
 else
-    mv -v craftbukkit-$1.jar ~/minecraft/prod/craftbukkit.jar
     mv -v spigot-$1.jar ~/minecraft/prod/spigot.jar
 fi
 echo "For git history check out https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/commits"
