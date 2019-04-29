@@ -30,6 +30,7 @@ alias vi="vim"
 alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
 alias tmuxls="tmux list-sessions"
 
+
 extract () {
     if [ -f $1 ] ; then
       case $1 in
