@@ -114,7 +114,8 @@ alias mv="mv -v"
 alias sizeme="sudo df -h /;du -hs * | sort -h"
 alias size=" du -h -d 1; df -h ."
 alias tree="tree -I \"@ea*\""
-alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"                                                            
+alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
+alias tmuxls="tmux list-sessions"
 
 if [[ $PATH == *"homebrew"* ]]; then
     unalias ccat

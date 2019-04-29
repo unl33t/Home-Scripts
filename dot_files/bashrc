@@ -28,6 +28,7 @@ alias tree="tree -I @ea*"
 alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
+alias tmuxls="tmux list-sessions"
 
 extract () {
     if [ -f $1 ] ; then
