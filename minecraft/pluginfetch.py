@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import urllib2
+import wget
 
 # Paths
 DownloadPath = "~/minecraft/prod/plugins/pending"
