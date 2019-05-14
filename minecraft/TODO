@@ -1,5 +1,4 @@
 - leverage https://hub.spigotmc.org/jenkins/rssAll for controlled updates of BuildTools so we don't harass them.
 
-- dev fetch/buid for dev builds of major releases. (will require manual update of version in script)
 
 
