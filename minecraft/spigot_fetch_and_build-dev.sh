@@ -1,6 +1,10 @@
 #! /bin/bash
+mcversions=$(lynx -dump https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/commits | grep "Update to Minecraft" | cut -d " " -f 5-)
+echo "latest versions:"
+echo "  $mcversions"
+read -p "Which version would you like: " spv
 
-spv="1.14.1"  #Spigot DEV versio to grab
+#spv="1.14.1"  #Spigot DEV versio to grab
 
 echo "Building SpigotMC $spv"
 
@@ -11,6 +15,7 @@ if [ ! -f BuildTools.jar ]; then
 fi
 
 #begin build
+git config --global --unset core.autocrlf
 java -jar BuildTools.jar --rev $spv
 
 #move into place

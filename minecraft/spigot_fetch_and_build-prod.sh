@@ -9,6 +9,7 @@ if [ ! -f BuildTools.jar ]; then
 fi
 
 #begin build
+git config --global --unset core.autocrlf
 java -jar BuildTools.jar
 
 #Version handling
