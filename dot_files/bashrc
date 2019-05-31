@@ -51,6 +51,16 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
+sessions () {
+    if [ "$(command -v tmux)" ]; then
+        echo "Open TMUX sessions:"
+        tmux ls
+    fi
+    if [ "$(command -v screen)" ]; then
+        echo "Open SCREEN sessions:"
+        screen -ls
+    fi
+}
 
 # colortail?
 if [ -x "$(command -v colortail)"  ]; then

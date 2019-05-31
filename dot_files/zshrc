@@ -115,7 +115,6 @@ alias sizeme="sudo df -h /;du -hs * | sort -h"
 alias size=" du -h -d 1; df -h ."
 alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
-alias tmuxls="tmux list-sessions"
 
 if [[ $PATH == *"homebrew"* ]]; then
     unalias ccat
@@ -145,6 +144,17 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
+sessions () {
+    if [ "$(command -v tmux)" ]; then
+        echo "Open TMUX sessions:"
+        tmux ls
+    fi
+    if [ "$(command -v screen)" ]; then
+        echo "Open SCREEN sessions:"
+        screen -ls
+    fi
+}
+
 # Exports
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
