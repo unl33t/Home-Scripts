@@ -148,11 +148,11 @@ extract () {
 }
 sessions () {
     if [ "$(command -v tmux)" ]; then
-        echo "Open TMUX sessions:"
+        echo "  Open TMUX sessions:"
         tmux ls
     fi
     if [ "$(command -v screen)" ]; then
-        echo "Open SCREEN sessions:"
+        echo "  Open SCREEN sessions:"
         screen -ls
     fi
 }
