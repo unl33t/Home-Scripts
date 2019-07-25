@@ -23,13 +23,13 @@
       preg_match_all('/<ul class="school-closings-2">(.*?)<\/ul>/s', $totalschools, $match);
       $newlist = array();
       $newlist = explode("<li", $match[0][0]);
-      echo "<br>Cohoes Schools:<br>";
-      echo "<ul>";
-      foreach ( $newlist as $school ) {
-        if (preg_match('/Cohoes/',$school) ) {
-          echo "<li".$school;
-        }
-      }
+      // echo "<br>Cohoes Schools:<br>";
+      // echo "<ul>";
+      // foreach ( $newlist as $school ) {
+      //   if (preg_match('/Cohoes/',$school) ) {
+      //     echo "<li".$school;
+      //   }
+      // }
       echo "</ul>";
       echo "<br>Niskayuna Schools:<br>";
       echo "<ul>";
