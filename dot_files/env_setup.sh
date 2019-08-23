@@ -178,6 +178,15 @@ else
     $InsCmd colortail
 fi
 #
+#   Othing things to install
+#
+if [ -x "$(command -v tree)" ]; then
+    echo "tree installed"
+else
+    echo "Installing tree"
+    $InsCmd tree
+fi
+#
 #   Almost there
 #
 make_it_live
