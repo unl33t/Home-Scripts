@@ -169,7 +169,7 @@ else
     esac
 fi
 #
-#   Installing colortail
+#   Installing additional apps
 #
 if [ -x "$(command -v colortail)"  ]; then
     echo "colortail installed"
@@ -177,9 +177,7 @@ else
     echo "Installing colortail"
     $InsCmd colortail
 fi
-#
-#   Othing things to install
-#
+
 if [ -x "$(command -v tree)" ]; then
     echo "tree installed"
 else
