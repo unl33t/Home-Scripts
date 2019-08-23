@@ -22,28 +22,29 @@ function make_it_live(){
     #   Refresh Env (might require a logout)
     #
     echo "Refreshing Environment"
-    if [ $SHELL = "*bash*" ];then
-        if [ -e ~/.profile ]; then
-            source ~/.profile
-        fi
-        if [ -e ~/.bash_profile ]; then
-            source ~/.bash_profile
-        fi
-        if [ -e ~/.bashrc ];then
-            source ~/.bashrc
-        fi
-    fi
-    if [ $SHELL = "*zsh*" ];then
-        if [ -e ~/.profile ]; then
-            source ~/.profile
-        fi
-        if [ -e ~/.zsh_profile ]; then
-            source ~/.zsh_profile
-        fi
-        if [ -e ~/.zshrc ];then
-            source ~/.zshrc
-        fi
-    fi
+    case $SHELL in
+        *bash*)
+            for file in .profile .bash_profile .bashrc
+            do
+                echo "refreshing $file"
+                if [ -e ~/$file ]; then
+                    source ~/$file
+                fi
+            done
+            ;;
+        *zsh*)
+            for file in .profile .zsh_profile .zshrc
+            do
+                echo "refreshing $file"
+                if [ -e ~/$file ]; then
+                    source ~/$file
+                fi
+            done
+            ;;
+        *)
+        echo "Shell not recognized"
+        ;;
+    esac
 }
 #
 #   Getting system info
@@ -54,18 +55,12 @@ case $systype in
     *Ubuntu*)
         system="Ubuntu"
         InsCmd="apt install -y "
-        if [ "$(whoami)" != "root"   ]; then
-            InsCmd="sudo "$InsCmd
-            mycp="sudo cp"
-        fi
+        need_sudo
         ;;
     *Microsoft*)
         system="Ubuntu"
         InsCmd="apt install -y"
-        if [ "$(whoami)" != "root"   ]; then
-             InsCmd="sudo "$InsCmd
-             mycp="sudo cp"
-        fi
+        need_sudo
         ;;
     *Darwin*)
         system="MacOS"
