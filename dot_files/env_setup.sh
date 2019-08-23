@@ -2,6 +2,21 @@
 #
 #   Functions
 #
+function need_sudo(){
+    if [ "$(whoami)" != "root"   ]; then
+        InsCmd="sudo "$InsCmd
+        mycp="sudo cp"
+    fi
+}
+
+function install_it(){
+    if [ -x "$(command -v $1)"  ]; then
+    echo "$1 installed"
+else
+    echo "Installing $1"
+    $InsCmd $1
+fi
+}
 function make_it_live(){
     #
     #   Refresh Env (might require a logout)
@@ -38,7 +53,7 @@ mycp="cp -v"
 case $systype in
     *Ubuntu*)
         system="Ubuntu"
-        InsCmd="apt install"
+        InsCmd="apt install -y "
         if [ "$(whoami)" != "root"   ]; then
             InsCmd="sudo "$InsCmd
             mycp="sudo cp"
@@ -46,7 +61,7 @@ case $systype in
         ;;
     *Microsoft*)
         system="Ubuntu"
-        InsCmd="apt install"
+        InsCmd="apt install -y"
         if [ "$(whoami)" != "root"   ]; then
              InsCmd="sudo "$InsCmd
              mycp="sudo cp"
@@ -171,19 +186,8 @@ fi
 #
 #   Installing additional apps
 #
-if [ -x "$(command -v colortail)"  ]; then
-    echo "colortail installed"
-else
-    echo "Installing colortail"
-    $InsCmd colortail
-fi
-
-if [ -x "$(command -v tree)" ]; then
-    echo "tree installed"
-else
-    echo "Installing tree"
-    $InsCmd tree
-fi
+install_it "colortail"
+install_it "tree"
 #
 #   Almost there
 #
