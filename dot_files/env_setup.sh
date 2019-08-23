@@ -23,25 +23,25 @@ function make_it_live(){
     #
     echo "Refreshing Environment"
     case $SHELL in
-        *bash*)
-            for file in .profile .bash_profile .bashrc
-            do
+    *bash*)
+        for file in .profile .bash_profile .bashrc
+        do
+            if [ -e ~/$file ]; then
                 echo "refreshing $file"
-                if [ -e ~/$file ]; then
-                    source ~/$file
-                fi
-            done
-            ;;
-        *zsh*)
-            for file in .profile .zsh_profile .zshrc
-            do
+                source ~/$file
+            fi
+        done
+        ;;
+    *zsh*)
+        for file in .zsh_profile .zlogin .zprofile .zshrc
+        do
+            if [ -e ~/$file ]; then
                 echo "refreshing $file"
-                if [ -e ~/$file ]; then
-                    source ~/$file
-                fi
-            done
-            ;;
-        *)
+                source ~/$file
+            fi
+        done
+        ;;
+    *)
         echo "Shell not recognized"
         ;;
     esac

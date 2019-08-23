@@ -115,10 +115,8 @@ alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
 alias gotop="gotop -fs"
 
 if [[ $PATH == *"homebrew"* ]]; then
-    # unalias ccat
     alias cat="/usr/local/homebrew/bin/ccat"
 else
-    # unalias ccat
     alias cat="/usr/local/bin/ccat"
 fi
 
