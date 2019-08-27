@@ -145,15 +145,6 @@ else
     $mycp gotop /usr/local/bin/gotop
     rm -rf /tmp/gotop gotop
 fi    
-# if [ -f /usr/local/bin/gotop ]; then
-#     echo "gotop installed"
-# else
-#     echo "Installing gotop"
-#     eval "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
-#     /tmp/gotop/scripts/download.sh
-#     $mycp gotop /usr/local/bin/gotop
-#     rm -rf /tmp/gotop gotop
-# fi
 #
 #   Installing ccat
 #
@@ -176,6 +167,7 @@ fi
 #   Installing additional apps
 #
 install_it "colortail"
+install_it "htop"
 install_it "tree"
 #
 #   Almost there
