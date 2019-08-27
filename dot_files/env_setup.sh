@@ -136,15 +136,24 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 #
 #   Grab gotop (because it's darn pretty)
 #
-if [ -f /usr/local/bin/gotop ]; then
-    echo "gotop installed"
+if find /usr/local/bin/gotop -mtime -30; then
+    echo "gotop is current"
 else
-    echo "Installing gotop"
+    echo "Updating gotop"
     eval "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
     /tmp/gotop/scripts/download.sh
     $mycp gotop /usr/local/bin/gotop
     rm -rf /tmp/gotop gotop
-fi
+fi    
+# if [ -f /usr/local/bin/gotop ]; then
+#     echo "gotop installed"
+# else
+#     echo "Installing gotop"
+#     eval "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
+#     /tmp/gotop/scripts/download.sh
+#     $mycp gotop /usr/local/bin/gotop
+#     rm -rf /tmp/gotop gotop
+# fi
 #
 #   Installing ccat
 #
