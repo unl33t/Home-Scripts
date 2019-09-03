@@ -114,6 +114,7 @@ alias size=" du -h -d 1; df -h ."
 alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
 alias gotop="gotop -fs"
+alias drivels="lsblk -o name,mountpoint,label,size,uuid"
 
 if [[ $PATH == *"homebrew"* ]]; then
     alias cat="/usr/local/homebrew/bin/ccat"
