@@ -55,8 +55,8 @@ case $systype in
             exit
         fi
         if [ "$(whoami)" != "root"   ]; then
-             mycp="sudo cp"
-         fi
+            mycp="sudo cp"
+        fi
         ;;
     *)
         echo "I don't know what OS this is, so I won't install anything."
@@ -136,7 +136,7 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 #
 #   Grab gotop (because it's darn pretty)
 #
-if find /usr/local/bin/gotop -mtime -30; then
+if [[ $(find /usr/local/bin/gotop -mtime -30 -print) ]]; then
     echo "gotop is current"
 else
     echo "Updating gotop"
