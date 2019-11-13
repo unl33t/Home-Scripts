@@ -159,3 +159,6 @@ export VISUAL=/usr/bin/vim
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/snap/bin:~/go/bin:$PATH"
 export PATH
+
+# Local customizations:
+# Any/all local zsh customizations that need to be sourced on terminal launch need to be added to .zshenv
