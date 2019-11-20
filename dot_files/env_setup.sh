@@ -144,7 +144,7 @@ else
     /tmp/gotop/scripts/download.sh
     $mycp gotop /usr/local/bin/gotop
     rm -rf /tmp/gotop gotop
-fi    
+fi
 #
 #   Installing ccat
 #
@@ -169,6 +169,8 @@ fi
 install_it "colortail"
 install_it "htop"
 install_it "tree"
+install_it "cowsay"
+install_it "fortune"
 #
 #   Almost there
 #
