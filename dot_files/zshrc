@@ -162,3 +162,6 @@ export PATH
 
 # Local customizations:
 # Any/all local zsh customizations that need to be sourced on terminal launch need to be added to .zshenv
+if [[ -x "$(command -v cowsay)" || -x "$(command -v cowsay)" ]]; then
+    ~/Home-Scripts/random-scripts/cowsay/cowrand.sh
+fi
