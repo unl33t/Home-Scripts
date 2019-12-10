@@ -165,3 +165,6 @@ export PATH
 if [[ -x "$(command -v cowsay)" || -x "$(command -v fortune)" ]]; then
     ~/Home-Scripts/random-scripts/cowsay/cowrand.sh
 fi
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
