@@ -17,6 +17,7 @@
     </script>
   </head>
   <body>
+    <a href="../">Back</a>
     <?php
       echo "<p>Last Refresh:  $date</p>";
       $totalschools = file_get_contents("http://www.timesunion.com/closings/");
