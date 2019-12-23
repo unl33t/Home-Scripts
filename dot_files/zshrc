@@ -113,7 +113,7 @@ alias sizeme="sudo df -h /;du -hs * | sort -h"
 alias size=" du -h -d 1; df -h ."
 alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
-alias gotop="gotop -fs"
+alias gotop="gotop -f"
 alias drivels="lsblk -o name,mountpoint,label,size,uuid"
 
 if [[ $PATH == *"homebrew"* ]]; then
