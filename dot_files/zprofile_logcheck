@@ -1,0 +1,5 @@
+
+# env-stat.log tail
+echo -e "\n*****     tail of env-stat log     *****"
+tail -n 5 /home/g33k/logs/env-stat.log
+echo "****************************************"
