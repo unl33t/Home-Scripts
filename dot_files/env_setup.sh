@@ -46,6 +46,11 @@ case $systype in
         InsCmd="apt install -y"
         need_sudo
         ;;
+    *microsoft*)
+        system="Ubuntu"
+        InsCmd="apt install -y"
+        need_sudo
+        ;;
     *Darwin*)
         system="MacOS"
         if [ -x "$(command -v brew)"  ]; then
