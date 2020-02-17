@@ -142,13 +142,15 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 #   Grab gotop (because it's darn pretty)
 #
 if [[ $(find /usr/local/bin/gotop -mtime -30 -print) ]]; then
-    echo "gotop is current"
+    echo "gotop is current $(gotop --version)""
 else
     echo "Updating gotop"
+    echo "Current:  $(gotop --version)"
     eval "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
     /tmp/gotop/scripts/download.sh
     $mycp gotop /usr/local/bin/gotop
     rm -rf /tmp/gotop gotop
+    echo "New:      $(gotop --version)"
 fi
 #
 #   Installing ccat
