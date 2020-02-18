@@ -178,6 +178,13 @@ install_it "htop"
 install_it "tree"
 install_it "cowsay"
 install_it "fortune"
+install_it "fortune-anarchism"
+install_it "fortune-mod"
+install_it "fortunes-bofh-excuses"
+install_it "fortunes-it"
+install_it "fortunes-it-off"
+install_it "fortunes-min"
+install_it "fortunes-off"
 #
 #   Almost there
 #
