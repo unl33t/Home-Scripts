@@ -178,7 +178,7 @@ install_it "htop"
 install_it "tree"
 install_it "cowsay"
 install_it "fortune"
-install_it "fortune-anarchism fortune-mod fortunes-bofh-excuses fortunes-it fortunes-it-off fortunes-min fortunes-min fortunes-off"
+install_it "fortune-mod fortunes-bofh-excuses fortunes-it fortunes-it-off fortunes-min fortunes-min fortunes-off"
 #
 #   Almost there
 #
