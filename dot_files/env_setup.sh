@@ -38,7 +38,7 @@ mycp="cp -v"
 case $systype in
     *Ubuntu*)
         system="Ubuntu"
-        InsCmd="apt install -y "
+        InsCmd="apt install -y"
         need_sudo
         ;;
     *Microsoft*)
@@ -142,7 +142,7 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 #   Grab gotop (because it's darn pretty)
 #
 if [[ $(find /usr/local/bin/gotop -mtime -30 -print) ]]; then
-    echo "gotop is current $(gotop --version)""
+    echo "gotop is current $(gotop --version)"
 else
     echo "Updating gotop"
     echo "Current:  $(gotop --version)"
@@ -178,13 +178,7 @@ install_it "htop"
 install_it "tree"
 install_it "cowsay"
 install_it "fortune"
-install_it "fortune-anarchism"
-install_it "fortune-mod"
-install_it "fortunes-bofh-excuses"
-install_it "fortunes-it"
-install_it "fortunes-it-off"
-install_it "fortunes-min"
-install_it "fortunes-off"
+install_it "fortune-anarchism fortune-mod fortunes-bofh-excuses fortunes-it fortunes-it-off fortunes-min fortunes-min fortunes-off"
 #
 #   Almost there
 #
