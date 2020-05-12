@@ -31,6 +31,9 @@ alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
 
+getbiggestfiles(){
+    find . -type f -print |sed "s/'/\\\'/g" | sed 's/ /\\ /g' | xargs ls -ladtr |awk '{print $5" "$6" "$7" "$8" "$9}' | sort -n -r  | head -n 20
+}
 
 extract () {
     if [ -f $1 ] ; then
