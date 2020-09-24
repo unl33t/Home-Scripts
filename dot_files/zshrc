@@ -117,6 +117,7 @@ alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
 alias gotop="gotop -f"
 alias whatami='lsb_release -a'
 alias drivels="lsblk -o name,mountpoint,label,size,uuid"
+alias htop="sudo htop"
 
 if [[ $PATH == *"homebrew"* ]]; then
     alias cat="/usr/local/homebrew/bin/ccat"
