@@ -39,22 +39,26 @@ case $systype in
     *Ubuntu*)
         system="Ubuntu"
         InsCmd="apt install -y"
+        Refresh="apt"
         need_sudo
         ;;
     *Microsoft*)
         system="Ubuntu"
         InsCmd="apt install -y"
+        Refresh="apt"
         need_sudo
         ;;
     *microsoft*)
         system="Ubuntu"
         InsCmd="apt install -y"
+        Refresh="apt"
         need_sudo
         ;;
     *Darwin*)
         system="MacOS"
         if [ -x "$(command -v brew)"  ]; then
             InsCmd="brew install"
+            Refresh="brew"
         else
             echo "Install Homebrew first (https://brew.sh/)"
             exit
@@ -67,6 +71,7 @@ case $systype in
         if [ -x "$(command -v raspi-config)"  ]; then
             system="Pi"
             InsCmd="apt install -y"
+            Refresh="apt"
             need_sudo
         else
             InsCmd="Unknown System, cannot install : "
@@ -91,6 +96,11 @@ if [ ! -L ~/.bashrc ];then
     ln -s ~/Home-Scripts/dot_files/bashrc ~/.bashrc
     make_it_live
 fi
+#
+#   Refresh package lists
+#
+echo "Refreshing package lists"
+$Refresh update
 #
 #   Setting up zsh
 #
