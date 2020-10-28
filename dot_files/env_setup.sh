@@ -63,7 +63,7 @@ case $systype in
             mycp="sudo cp"
         fi
         ;;
-    *Linux*}
+    *Linux*)
         if [ -x "$(command -v raspi-config)"  ]; then
             system="Pi"
             InsCmd="apt install -y"
