@@ -107,23 +107,20 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ..="cd .."
-alias check="~/Home-Scripts/random-scripts/check.sh"
+alias lookfor="~/Home-Scripts/random-scripts/lookfor.sh"
 alias gitprep="~/Home-Scripts/random-scripts/gitprep.sh"
 alias mv="mv -v"
-alias sizeme="sudo df -h /;du -hs * | sort -h"
-alias size=" du -h -d 1; df -h ."
 alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
-alias gotop="gotop -f -s"
+alias gotop="sudo gotop -f -s"
 alias whatami='lsb_release -a'
-alias drivels="lsblk -o name,mountpoint,label,size,uuid"
 alias htop="sudo htop"
 
 if [[ $PATH == *"homebrew"* ]]; then
     alias cat="/usr/local/homebrew/bin/ccat"
 else
-    if [ "$(command -v ccat)" ]; then
-         alias cat="ccat"
+    if [ "$(command -v chroma)" ]; then
+         alias cat="chroma"
     fi
 fi
 
@@ -151,9 +148,9 @@ export PATH
 
 # Local customizations:
 # Any/all local zsh customizations that need to be sourced on terminal launch need to be added to .zshenv
-if [[ -x "$(command -v cowsay)" || -x "$(command -v fortune)" ]]; then
-    ~/Home-Scripts/random-scripts/cowsay/cowrand.sh
-fi
+if [[ -x "$(command -v neofetch)" ]];
+    neofetch
+fi 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
