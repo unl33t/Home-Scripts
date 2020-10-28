@@ -18,19 +18,6 @@ else
     $InsCmd $1
 fi
 }
-function make_it_live(){    # re-source the .xrc files as needed
-    echo "Refreshing Environment"
-    if [ $SHELL = "*bash*" ];then
-        if [ -e ~/.bashrc ];then
-            source ~/.bashrc
-        fi
-    fi
-    if [ $SHELL = "*zsh*" ];then
-        if [ -e ~/.zshrc ];then
-            source ~/.zshrc
-        fi
-    fi
-}
 #
 #   Getting system info
 #
@@ -95,7 +82,7 @@ echo "Backing up old .bashrc and linking new"
 if [ ! -L ~/.bashrc ];then
     mv ~/.bashrc ~/.bashrc.old
     ln -s ~/Home-Scripts/dot_files/bashrc ~/.bashrc
-    make_it_live
+    source ~/.bashrc
 fi
 #
 #   Refresh package lists
@@ -118,7 +105,7 @@ if [ -x "$(command -v zsh)" ];then
     if [ ! -L ~/.zshrc ];then
         mv ~/.zshrc ~/.zshrc.bak
         ln -s ~/Home-Scripts/dot_files/zshrc ~/.zshrc
-        make_it_live
+        source ~/.zshrc
     fi
 fi
 #
@@ -197,11 +184,6 @@ install_it "colortail"
 install_it "htop"
 install_it "tree"
 install_it "neofetch"
-
-#
-#   Almost there
-#
-make_it_live
 #
 #   All done
 #
