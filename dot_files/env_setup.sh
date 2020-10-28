@@ -6,6 +6,7 @@ function need_sudo(){
     if [ "$(whoami)" != "root"   ]; then
         InsCmd="sudo "$InsCmd
         mycp="sudo cp"
+        Refresh="sudo $Refresh"
     fi
 }
 
