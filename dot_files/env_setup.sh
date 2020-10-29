@@ -180,6 +180,7 @@ fi
 #
 #   Installing additional apps
 #
+install_it "vim"
 install_it "colortail"
 install_it "htop"
 install_it "tree"
