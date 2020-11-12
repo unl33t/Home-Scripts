@@ -115,6 +115,7 @@ alias aptall="sudo apt update ; sudo apt upgrade; sudo apt autoremove -y"
 alias gotop="sudo gotop -f -s"
 alias whatami='lsb_release -a'
 alias htop="sudo htop"
+alias remote="ssh -L 5901:localhost:5900 wtfwasithinking.org"
 
 if [[ $PATH == *"homebrew"* ]]; then
     alias cat="/usr/local/homebrew/bin/ccat"
