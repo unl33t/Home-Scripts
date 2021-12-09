@@ -172,9 +172,6 @@ else
         MacOS)
             $InsCmd ccat
             ;;
-        Ubuntu)
-            $InsCmd -y chroma
-            ;;
     esac
 fi
 #
