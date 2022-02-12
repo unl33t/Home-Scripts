@@ -73,7 +73,6 @@ plugins=(
   nmap
   rsync
   sudo
-  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
