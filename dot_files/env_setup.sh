@@ -148,40 +148,12 @@ else
 fi
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 #
-#   Grab gotop (because it's darn pretty)
-#
-if [[ $(find /usr/local/bin/gotop -mtime -30 -print) ]]; then
-    echo "gotop is current $(gotop --version)"
-else
-    echo "Updating gotop"
-    echo "Current:  $(gotop --version)"
-    eval "git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop"
-    /tmp/gotop/scripts/download.sh
-    $mycp gotop /usr/local/bin/gotop
-    rm -rf /tmp/gotop gotop
-    echo "New:      $(gotop --version)"
-fi
-#
-#   Installing ccat
-#
-if [[ -x "$(command -v ccat)" || -f /usr/local/bin/ccat ]]; then
-    echo "ccat installed"
-else
-    echo "Installing ccat"
-    case $system in
-        MacOS)
-            $InsCmd ccat
-            ;;
-    esac
-fi
-#
 #   Installing additional apps
 #
 install_it "vim"
 install_it "colortail"
 install_it "htop"
 install_it "tree"
-install_it "neofetch"
 #
 #   All done
 #

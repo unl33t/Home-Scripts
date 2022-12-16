@@ -111,7 +111,6 @@ alias gitprep="~/Home-Scripts/random-scripts/gitprep.sh"
 alias mv="mv -v"
 alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt autoclean; sudo apt autoremove -y; sudo apt update ; sudo apt upgrade"
-alias gotop="sudo gotop -f -s"
 alias whatami='lsb_release -a'
 alias remote="ssh -L 5901:localhost:5900 wtfwasithinking.org"
 
