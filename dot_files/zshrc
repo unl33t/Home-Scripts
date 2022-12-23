@@ -129,6 +129,11 @@ sessions () {
     fi
 }
 
+ # colortail?
+ if [ -x "$(command -v colortail)"  ]; then
+     alias tail="colortail"
+ fi
+
 # Exports
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
