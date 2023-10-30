@@ -70,6 +70,18 @@ if [ -x "$(command -v colortail)"  ]; then
     alias tail="colortail"
 fi
 
+apt() { 
+  command nala "$@"
+}
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
+}
+
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
