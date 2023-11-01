@@ -155,6 +155,7 @@ install_it "colortail"
 install_it "htop"
 install_it "tree"
 install_it "renameutils"
+install_it "nala"
 #
 #   All done
 #
