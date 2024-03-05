@@ -161,4 +161,3 @@ export PATH
 
 # Local customizations:
 # Any/all local zsh customizations that need to be sourced on terminal launch need to be added to .zshenv
-eval "$(atuin init zsh)"
