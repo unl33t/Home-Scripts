@@ -113,17 +113,6 @@ alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt autoremove -y; sudo apt upgrade"
 alias whatami='lsb_release -a'
 alias remote="ssh -L 5901:localhost:5900 wtfwasithinking.org"
-apt() { 
-  command nala "$@"
-}
-sudo() {
-  if [ "$1" = "apt" ]; then
-    shift
-    command sudo nala "$@"
-  else
-    command sudo "$@"
-  fi
-}
 puppet() {
   if [ "$(id -u)" -ne 0 ]; then
     echo "Please run puppet as root." >&2
