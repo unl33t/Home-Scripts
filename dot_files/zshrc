@@ -73,6 +73,7 @@ plugins=(
   nmap
   rsync
   sudo
+  wakeonlan
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -117,7 +118,7 @@ puppet() {
   if [ "$(id -u)" -ne 0 ]; then
     echo "Please run puppet as root." >&2
   else
-    command puppet "$@"
+    command /opt/puppetlabs/bin/puppet "$@"
   fi
 }
 
@@ -135,11 +136,6 @@ sessions () {
         screen -ls
     fi
 }
-
- # colortail?
- if [ -x "$(command -v colortail)"  ]; then
-     alias tail="colortail"
- fi
 
 # Exports
 export EDITOR=/usr/bin/vim
