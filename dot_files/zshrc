@@ -112,6 +112,7 @@ alias gitprep="~/Home-Scripts/random-scripts/gitprep.sh"
 alias mv="mv -v"
 alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt autoremove -y; sudo apt upgrade"
+alias dnfall="sudo dnf check-updates; sudo dnf upgrade"
 alias whatami='lsb_release -a'
 alias remote="ssh -L 5901:localhost:5900 wtfwasithinking.org"
 puppet() {

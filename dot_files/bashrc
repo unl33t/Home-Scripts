@@ -29,6 +29,7 @@ alias tree="tree -I @ea*"
 alias size=" du -h -d 1; df -h ."
 alias vi="vim"
 alias aptall="sudo apt autoremove -y; sudo apt update ; sudo apt upgrade"
+alias dnfall="sudo dnf check-updates; sudo dnf upgradde"
 
 getbiggestfiles(){
     find . -type f -print |sed "s/'/\\\'/g" | sed 's/ /\\ /g' | xargs ls -ladtr |awk '{print $5" "$6" "$7" "$8" "$9}' | sort -n -r  | head -n 20
