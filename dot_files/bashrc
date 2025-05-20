@@ -31,6 +31,11 @@ alias vi="vim"
 alias aptall="sudo apt autoremove -y; sudo apt update ; sudo apt upgrade;sudo needrestart -p"
 alias dnfall="sudo dnf check-update; sudo dnf upgradde;sudo needs-restarting -r"
 
+alias tm="tmux new-session -A -s "
+alias tmx="tmux kill-session -t "
+alias tmj="tmux attach "
+alias tmls="tmux ls"
+
 getbiggestfiles(){
     find . -type f -print |sed "s/'/\\\'/g" | sed 's/ /\\ /g' | xargs ls -ladtr |awk '{print $5" "$6" "$7" "$8" "$9}' | sort -n -r  | head -n 20
 }

@@ -108,13 +108,18 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ..="cd .."
 alias lookfor="~/Home-Scripts/random-scripts/lookfor.sh"
-alias gitprep="~/Home-Scripts/random-scripts/gitprep.sh"
 alias mv="mv -v"
 alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt autoremove -y; sudo apt upgrade;sudo needrestart -p"
 alias dnfall="sudo dnf check-update; sudo dnf upgrade;sudo needs-restarting -r"
 alias whatami='lsb_release -a'
 alias remote="ssh -L 5901:localhost:5900 wtfwasithinking.org"
+
+alias tm="tmux new-session -A -s "
+alias tmx="tmux kill-session -t "
+alias tmj="tmux attach "
+alias tmls="tmux ls"
+
 puppet() {
   if [ "$(id -u)" -ne 0 ]; then
     echo "Please run puppet as root." >&2
