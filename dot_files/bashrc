@@ -1,6 +1,6 @@
 # .bashrc
 
-PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/snap/bin:$PATH"
+PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/snap/bin:~/.local/bin:$PATH"
 export PATH
 
 # enable color support of ls and also add handy aliases
