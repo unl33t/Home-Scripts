@@ -111,7 +111,7 @@ alias lookfor="~/Home-Scripts/random-scripts/lookfor.sh"
 alias mv="mv -v"
 alias tree="tree -I \"@ea*\""
 alias aptall="sudo apt autoremove -y; sudo apt upgrade;sudo needrestart -p"
-alias dnfall="sudo dnf check-update; sudo dnf upgrade;sudo needs-restarting -r"
+alias dnfall="sudo dnf upgrade;sudo needs-restarting -r"
 alias whatami='lsb_release -a'
 alias remote="ssh -L 5901:localhost:5900 wtfwasithinking.org"
 
