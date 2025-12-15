@@ -107,4 +107,3 @@ PERL_MB_OPT="--install_base \"/Users/g33k/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/g33k/perl5"; export PERL_MM_OPT;
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
-qq
