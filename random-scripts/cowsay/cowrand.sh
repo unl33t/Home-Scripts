@@ -1,7 +1,7 @@
 #!/bin/bash
 # get line
 IFS=$'\n'
-line=($(sort -R ~/Home-Scripts/random-scripts/cowsay/cowsay.csv | head -n 1))
+line=($(sort -R ./cowsay.csv | head -n 1))
 unset IFS
 
 # turn it into an array by splitting on ","
